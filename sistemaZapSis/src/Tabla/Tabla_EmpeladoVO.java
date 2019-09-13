@@ -54,14 +54,17 @@ public class Tabla_EmpeladoVO{
 
         dao = new EmpeladoDAO();
         EmpeladoVO vo = new EmpeladoVO();
-        EmpeladoVO list = dao.Buscar_EmpeladoVO(DNi);
+        //EmpeladoVO list = dao.Buscar_EmpeladoVO(DNi);
+        vo = dao.Buscar_EmpeladoVO(DNi);
+          System.out.println(vo.toString());
+        
         
         Object fila[] = new Object[3];
                
                 
-                fila[0] = list.getNombre();
-                fila[1] = list.getApellido();
-                fila[2] = list.getNombresindicato();
+                fila[0] = vo.getNombre();
+                fila[1] = vo.getApellido();
+                fila[2] = vo.getNombresindicato();
                 dt.addRow(fila);
             
             tabla.setModel(dt);

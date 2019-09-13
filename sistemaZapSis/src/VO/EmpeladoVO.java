@@ -67,4 +67,11 @@ public EmpeladoVO(){}
         this.nombresindicato = nombresindicato;
     }
 
+    @Override
+    public String toString() {
+        return "EmpeladoVO{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", domicilio=" + domicilio + ", correoelectronico=" + correoelectronico + ", estado=" + estado + ", nombresindicato=" + nombresindicato + '}';
+    }
+    
+    
+
 }

@@ -13,7 +13,7 @@ public class EmpeladoDAO {
     final String UPDATE = "UPDATE empleado SET DNI = ?,nombre = ?,apellido = ?,telefono = ?,domicilio = ?,correoElectronico = ?,estadoEm = ?,nombreSindicato = ? WHERE DNI = ?";
     final String DELETE = "DELETE FROM empleado WHERE DNI = ?";
     final String GETALL = "SELECT * FROM empleado";
-    final String GETONE = "SELECT estado FROM empleado WHERE DNI = ?";
+    final String GETONE = "SELECT * FROM `empleado` WHERE `DNI` = ?";
     final String UPDATEEM = "UPDATE empleado SET estado = ? WHERE DNI = ?";
 
     public ArrayList<EmpeladoVO> Listar_EmpeladoVO() {
@@ -150,7 +150,8 @@ public class EmpeladoDAO {
     }
 
     //borrar empleado logicamente
-    public void borrar_EmpeladoVO(EmpeladoVO vo) {
+    public int borrar_EmpeladoVO(EmpeladoVO vo) {
+        int resultado = 0;
         Conectar conec = new Conectar();
         //String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
         PreparedStatement ps = null;
@@ -165,7 +166,7 @@ public class EmpeladoDAO {
             ps.setInt(1, vo.getEstado());
             ps.setInt(2, vo.getDni());
             //ps.setString(8, vo.getNombresindicato());
-            ps.executeUpdate();
+            resultado = ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } catch (Exception ex) {
@@ -177,6 +178,7 @@ public class EmpeladoDAO {
             } catch (Exception ex) {
             }
         }
+        return resultado;
     }
 
     /*Metodo Eliminar*/

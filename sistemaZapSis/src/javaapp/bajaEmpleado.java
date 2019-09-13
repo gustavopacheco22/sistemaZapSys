@@ -8,6 +8,8 @@ package javaapp;
 import VO.EmpeladoVO;
 import DAO.EmpeladoDAO;
 import Tabla.Tabla_EmpeladoVO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gustavo
@@ -166,20 +168,26 @@ public class bajaEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIActionPerformed
-        
+
     }//GEN-LAST:event_txtDNIActionPerformed
 
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
         try {
+            int i = 0;
             VO.EmpeladoVO empleados = new VO.EmpeladoVO();
             DAO.EmpeladoDAO daoemplaedo = new DAO.EmpeladoDAO();
             empleados.setDni(Integer.parseInt(txtDNI.getText()));
             empleados.setEstado(1);
-            
-            
-            daoemplaedo.borrar_EmpeladoVO(empleados);
+
+            i = daoemplaedo.borrar_EmpeladoVO(empleados);
+
+            if (i > 0) {
+                JOptionPane.showMessageDialog(this, "Datos Borrados Correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Nose Pudo Borrar los datos");
+            }
         } catch (Exception e) {
-            System.out.println("Error: "+ e);
+            System.out.println("Error: " + e);
         }
     }//GEN-LAST:event_btnBajaActionPerformed
 
@@ -187,12 +195,11 @@ public class bajaEmpleado extends javax.swing.JFrame {
         try {
             EmpeladoVO empleado = new EmpeladoVO();
             EmpeladoDAO dempleado = new EmpeladoDAO();
-            
             Tabla_EmpeladoVO tabla = new Tabla_EmpeladoVO();
-            
-            tabla.mostrarEmpleado(tablaEmpleado, Integer.parseInt(txtDNI.getText()) );
-            empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDNI.getText()));
-            
+
+            //empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDNI.getText()));
+            tabla.mostrarEmpleado(tablaEmpleado, Integer.parseInt(txtDNI.getText()));
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
