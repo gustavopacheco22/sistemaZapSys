@@ -89,6 +89,49 @@ public class EmpeladoDAO {
         }
         return vo;
     }
+    
+    
+    public EmpeladoVO Buscar_Empleado_Activo(int dni){
+        Conectar conec = new Conectar();
+        String sql = "SELECT * FROM empleado where DNI = ? AND estado = ?;";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        EmpeladoVO vo = null;
+      
+        try {
+            
+            ps = conec.getConnection().prepareStatement(sql);
+            ps.setInt(1, dni);
+            ps.setInt(2, 0);
+            rs = ps.executeQuery();
+            
+
+            if (rs.first()) {
+                vo = new EmpeladoVO();
+                vo.setDni(rs.getInt(1));
+                vo.setNombre(rs.getString(2));
+                vo.setApellido(rs.getString(3));
+                vo.setTelefono(rs.getInt(4));
+                vo.setDomicilio(rs.getString(5));
+                vo.setCorreoelectronico(rs.getString(6));
+                vo.setEstado(rs.getInt(7));
+                vo.setNombresindicato(rs.getString(8));
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        return vo;
+    }
 
     /*Metodo agregar*/
     public void Agregar_EmpeladoVO(EmpeladoVO vo) {

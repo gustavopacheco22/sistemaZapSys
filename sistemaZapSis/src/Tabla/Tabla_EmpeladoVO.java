@@ -86,6 +86,32 @@ public class Tabla_EmpeladoVO{
 //            tabla.setModel(dt);
 //        }
     }
+      
+        public void mostrarEmpleadoXEstado(JTable tabla, int DNi){
+        DefaultTableModel dt = new DefaultTableModel();
+        
+        
+        dt.addColumn("nombre");
+        dt.addColumn("apellido");
+        dt.addColumn("filial");
+
+        dao = new EmpeladoDAO();
+        EmpeladoVO vo = new EmpeladoVO();
+        //EmpeladoVO list = dao.Buscar_EmpeladoVO(DNi);
+        vo = dao.Buscar_Empleado_Activo(DNi);
+        System.out.println(vo.toString());
+       
+        
+        Object fila[] = new Object[3];
+
+                fila[0] = vo.getNombre();
+                fila[1] = vo.getApellido();
+                fila[2] = vo.getNombresindicato();
+                dt.addRow(fila);
+            
+            tabla.setModel(dt);
+    //return vo;
+        }
 }
 
 

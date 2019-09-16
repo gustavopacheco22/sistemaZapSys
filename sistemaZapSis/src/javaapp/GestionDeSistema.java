@@ -47,6 +47,11 @@ public class GestionDeSistema extends javax.swing.JFrame {
 
         btnGesHoras.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         btnGesHoras.setText("Gestion de Horas Trabajadas");
+        btnGesHoras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGesHorasActionPerformed(evt);
+            }
+        });
 
         btnGesInformes.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         btnGesInformes.setText("Gestion de Informes");
@@ -131,6 +136,12 @@ public class GestionDeSistema extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGesEmpleadosActionPerformed
+
+    private void btnGesHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGesHorasActionPerformed
+        horasTrabajadas ventana = new horasTrabajadas();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnGesHorasActionPerformed
 
     /**
      * @param args the command line arguments

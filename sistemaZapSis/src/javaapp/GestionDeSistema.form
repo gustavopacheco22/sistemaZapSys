@@ -89,6 +89,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Gestion de Horas Trabajadas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGesHorasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGesInformes">
       <Properties>
