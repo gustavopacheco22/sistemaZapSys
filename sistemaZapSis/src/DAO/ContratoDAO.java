@@ -12,7 +12,7 @@ public class ContratoDAO{
     public ArrayList<ContratoVO> Listar_ContratoVO(){
         ArrayList<ContratoVO> list = new ArrayList<ContratoVO>();
         Conectar conec = new Conectar();
-        String sql = "SELECT * FROM tabla;";
+        String sql = "SELECT * FROM contrato ;";
         ResultSet rs = null;
         PreparedStatement ps = null;
         try{
@@ -21,8 +21,8 @@ public class ContratoDAO{
             while(rs.next()){
                 ContratoVO vo = new ContratoVO();
                 vo.setIdcontrato(rs.getInt(1));
-                vo.setFechafirma(rs.getInt(2));
-                vo.setFechavencimiento(rs.getInt(3));
+                vo.setFechafirma(rs.getDate(2));
+                vo.setFechavencimiento(rs.getDate(3));
                 vo.setEstado(rs.getInt(4));
                 vo.setDni(rs.getInt(5));
                 vo.setIdcategoria(rs.getInt(6));
@@ -46,17 +46,18 @@ public class ContratoDAO{
 /*Metodo agregar*/
     public void Agregar_ContratoVO(ContratoVO vo){
         Conectar conec = new Conectar();
-        String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
+        String sql = "INSERT INTO contrato (fechaFirma, fechaVencimiento, DNI, idCategoria) VALUES(?,?, ?, ?);";
         PreparedStatement ps = null;
         try{
             ps = conec.getConnection().prepareStatement(sql);
-            ps.setInt(1, vo.getIdcontrato());
-            ps.setInt(2, vo.getFechafirma());
-            ps.setInt(3, vo.getFechavencimiento());
-            ps.setInt(4, vo.getEstado());
-            ps.setInt(5, vo.getDni());
-            ps.setInt(6, vo.getIdcategoria());
+            //ps.setInt(1, vo.getIdcontrato());
+            ps.setDate(1, vo.getFechafirma());
+            ps.setDate(2, vo.getFechavencimiento());
+            //ps.setInt(3, vo.getEstado());
+            ps.setInt(3, vo.getDni());
+            ps.setInt(4, vo.getIdcategoria());
             ps.executeUpdate();
+            
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }catch(Exception ex){
@@ -73,13 +74,13 @@ public class ContratoDAO{
 /*Metodo Modificar*/
     public void Modificar_ContratoVO(ContratoVO vo){
         Conectar conec = new Conectar();
-        String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
+        String sql = "UPDATE contrato SET estado = ? WHERE DNI = ?;";
         PreparedStatement ps = null;
         try{
             ps = conec.getConnection().prepareStatement(sql);
             ps.setInt(1, vo.getIdcontrato());
-            ps.setInt(2, vo.getFechafirma());
-            ps.setInt(3, vo.getFechavencimiento());
+            ps.setDate(2, vo.getFechafirma());
+            ps.setDate(3, vo.getFechavencimiento());
             ps.setInt(4, vo.getEstado());
             ps.setInt(5, vo.getDni());
             ps.setInt(6, vo.getIdcategoria());
@@ -105,8 +106,8 @@ public class ContratoDAO{
         try{
             ps = conec.getConnection().prepareStatement(sql);
             ps.setInt(1, vo.getIdcontrato());
-            ps.setInt(2, vo.getFechafirma());
-            ps.setInt(3, vo.getFechavencimiento());
+            ps.setDate(2, vo.getFechafirma());
+            ps.setDate(3, vo.getFechavencimiento());
             ps.setInt(4, vo.getEstado());
             ps.setInt(5, vo.getDni());
             ps.setInt(6, vo.getIdcategoria());

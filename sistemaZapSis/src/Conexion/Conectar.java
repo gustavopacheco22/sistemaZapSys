@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Conectar{
 
-    static String bd = "sistemaa";
+    static String bd = "sistzip";
     static String login = "root";
     static String password = "";
     static String url = "jdbc:mysql://localhost/"+bd;

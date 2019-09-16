@@ -5,10 +5,15 @@
  */
 package javaapp;
 import DAO.CategoriaDAO;
+import DAO.ContratoDAO;
+import VO.ContratoVO;
 import DAO.EmpeladoDAO;
 import Tabla.Tabla_EmpeladoVO;
 import VO.EmpeladoVO;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,7 +58,8 @@ public class GenerarContrato extends javax.swing.JFrame {
         dateVencimiento = new com.toedter.calendar.JDateChooser();
         labIngreso = new javax.swing.JLabel();
         labVencimiento = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,10 +107,17 @@ public class GenerarContrato extends javax.swing.JFrame {
 
         labVencimiento.setText("Fecha de Vencimiento");
 
-        jButton1.setText("algo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGenerar.setText("Generar");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGenerarActionPerformed(evt);
+            }
+        });
+
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
             }
         });
 
@@ -140,13 +153,14 @@ public class GenerarContrato extends javax.swing.JFrame {
                         .addContainerGap(69, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(104, 104, 104))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(90, 90, 90))))))
+                        .addComponent(jLabel1)
+                        .addGap(104, 104, 104))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(btnAtras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGenerar)
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +187,11 @@ public class GenerarContrato extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dateVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labVencimiento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(153, 153, 153))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerar)
+                    .addComponent(btnAtras))
+                .addGap(108, 108, 108))
         );
 
         pack();
@@ -209,9 +225,53 @@ public class GenerarContrato extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+    private void limpiar() {
+        txtDni.setText("");
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       System.out.println(dateIngreso.getCalendar().getTime());    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        ContratoDAO condao = new ContratoDAO();
+        ContratoVO cont = new ContratoVO();
+        
+//        java.util.Calendar cal = Calendar.getInstance();
+//        java.util.Date utilDate = new java.util.Date();
+//        cal.setTime(dateIngreso.getCalendar().getTime());
+//        cal.set(Calendar.HOUR_OF_DAY, 0);
+//        cal.set(Calendar.MINUTE, 0);
+//        cal.set(Calendar.SECOND, 0);
+//        cal.set(Calendar.MILLISECOND, 0);
+        java.sql.Date sqlDateI = new java.sql.Date(dateIngreso.getDate().getTime());
+        java.sql.Date sqlDateV = new java.sql.Date(dateVencimiento.getDate().getTime());
+
+        //System.out.println("utilDate"+ utilDate);
+        System.out.println("sqlDateIngreso: "+ sqlDateI);    
+        System.out.println("sqlDateVencimiento: "+ sqlDateV);
+
+
+
+
+        
+        cont.setFechafirma(sqlDateI);
+        cont.setFechavencimiento(sqlDateV);
+        cont.setDni(Integer.parseInt(txtDni.getText()));
+        if (combxCategoria.getSelectedIndex() == 0){
+            cont.setIdcategoria(4);
+        } else{
+            if(combxCategoria.getSelectedIndex() == 1){
+                 cont.setIdcategoria(5);
+            } else {
+                 cont.setIdcategoria(6);
+            }
+        }
+        condao.Agregar_ContratoVO(cont);
+        limpiar();
+        
+    }//GEN-LAST:event_btnGenerarActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+       
+       this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,11 +309,12 @@ public class GenerarContrato extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnGenerar;
     private javax.swing.JComboBox<String> combxCategoria;
     private com.toedter.calendar.JDateChooser dateIngreso;
     private com.toedter.calendar.JDateChooser dateVencimiento;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

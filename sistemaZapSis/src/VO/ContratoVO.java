@@ -1,11 +1,13 @@
 package VO;
 
+import java.sql.Date;
+
 public class ContratoVO {
 
 /*Todo los atributos*/
     int idcontrato;
-    int fechafirma;
-    int fechavencimiento;
+    Date fechafirma;
+    Date fechavencimiento;
     int estado;
     int dni;
     int idcategoria;
@@ -16,10 +18,10 @@ public ContratoVO(){}
     public int getIdcontrato(){
         return idcontrato;
     }
-    public int getFechafirma(){
+    public Date getFechafirma(){
         return fechafirma;
     }
-    public int getFechavencimiento(){
+    public Date getFechavencimiento(){
         return fechavencimiento;
     }
     public int getEstado(){
@@ -37,10 +39,10 @@ public ContratoVO(){}
     public void setIdcontrato(int idcontrato){
         this.idcontrato = idcontrato;
     }
-    public void setFechafirma(int fechafirma){
+    public void setFechafirma(Date fechafirma){
         this.fechafirma = fechafirma;
     }
-    public void setFechavencimiento(int fechavencimiento){
+    public void setFechavencimiento(Date fechavencimiento){
         this.fechavencimiento = fechavencimiento;
     }
     public void setEstado(int estado){
