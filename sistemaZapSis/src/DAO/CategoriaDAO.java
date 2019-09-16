@@ -4,6 +4,8 @@ import Conexion.Conectar;
 import VO.CategoriaVO;
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 
 /*Metodo listar*/
@@ -109,6 +111,35 @@ public class CategoriaDAO{
                 conec.desconectar();
             }catch(Exception ex){}
         }
+    }
+    
+    /*Metodo Listar Categoria en un ComboBOX*/
+    public void Listar_Categoria_ComboBOX(JComboBox box){
+        DefaultComboBoxModel value;
+        Conectar conec = new Conectar();
+        String sql = "SELECT descripcion FROM categoria;";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try{
+            ps = conec.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            value = new DefaultComboBoxModel();
+            box.setModel(value);
+            while(rs.next()){
+                value.addElement(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            }catch(Exception ex){}
+        }
+        
     }
 
 

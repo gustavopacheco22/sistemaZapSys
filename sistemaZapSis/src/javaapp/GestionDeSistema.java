@@ -5,6 +5,7 @@
  */
 package javaapp;
 
+import vistaLogin.*;
 /**
  *
  * @author Oscar Andres Arce
@@ -125,7 +126,7 @@ public class GestionDeSistema extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        LogIn ventana= new LogIn();
+        frm_Menu ventana= new frm_Menu();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed

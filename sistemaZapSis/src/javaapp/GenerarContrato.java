@@ -6,6 +6,7 @@
 package javaapp;
 import DAO.CategoriaDAO;
 import DAO.EmpeladoDAO;
+import Tabla.Tabla_EmpeladoVO;
 import VO.EmpeladoVO;
 import java.util.ArrayList;
 
@@ -20,9 +21,15 @@ public class GenerarContrato extends javax.swing.JFrame {
      */
     public GenerarContrato() {
         initComponents();
-        this.combxCategoria.removeAllItems();
         setLocationRelativeTo(null);
-        
+        this.labelCat.setVisible(false);
+        this.combxCategoria.setVisible(false);
+        this.labIngreso.setVisible(false);
+        this.dateIngreso.setVisible(false);
+        this.labVencimiento.setVisible(false);
+        this.dateVencimiento.setVisible(false);
+        DAO.CategoriaDAO categorias= new DAO.CategoriaDAO();
+        categorias.Listar_Categoria_ComboBOX(combxCategoria);  
     }
 
     /**
@@ -36,26 +43,41 @@ public class GenerarContrato extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaEmpleado = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtDni = new javax.swing.JTextField();
         combxCategoria = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        labelCat = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        dateIngreso = new com.toedter.calendar.JDateChooser();
+        dateVencimiento = new com.toedter.calendar.JDateChooser();
+        labIngreso = new javax.swing.JLabel();
+        labVencimiento = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabel1.setText("Generar Contrato");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Telefono", "Domicilio", "Correo Electronico"
+                "Nombre", "Apellido", "Nombre de Sindicato"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaEmpleado);
 
         jLabel2.setText("DNI");
 
@@ -66,46 +88,94 @@ public class GenerarContrato extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Seleccionar Categoria");
+        labelCat.setText("Seleccionar Categoria");
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        labIngreso.setText("Fecha de Ingreso");
+
+        labVencimiento.setText("Fecha de Vencimiento");
+
+        jButton1.setText("algo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(134, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(104, 104, 104))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(combxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(11, 11, 11)
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane1))
+                                .addGap(29, 29, 29)
+                                .addComponent(btnBuscar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelCat)
+                                    .addComponent(labIngreso)
+                                    .addComponent(labVencimiento))
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dateIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                    .addComponent(combxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dateVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(69, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(104, 104, 104))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(90, 90, 90))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCat))
+                        .addGap(18, 18, 18)
+                        .addComponent(dateIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labIngreso))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labVencimiento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(153, 153, 153))
         );
 
         pack();
@@ -113,11 +183,35 @@ public class GenerarContrato extends javax.swing.JFrame {
 
     private void combxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combxCategoriaActionPerformed
         // TODO add your handling code here:
-        VO.EmpeladoVO emp = null;//new VO.EmpeladoVO();
-        DAO.EmpeladoDAO empd = new DAO.EmpeladoDAO();
-        emp = empd.Buscar_EmpeladoVO(12345678);
-        if (!(emp == null)){}
+      
     }//GEN-LAST:event_combxCategoriaActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+          try {
+            EmpeladoVO empleado =null;
+            EmpeladoDAO dempleado = new EmpeladoDAO();
+            Tabla_EmpeladoVO tablas = new Tabla_EmpeladoVO();
+            
+            empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDni.getText()));
+            
+            if(empleado!=null){
+                this.labelCat.setVisible(true);
+                this.combxCategoria.setVisible(true);
+                this.labIngreso.setVisible(true);
+                this.dateIngreso.setVisible(true);
+                this.labVencimiento.setVisible(true);
+                this.dateVencimiento.setVisible(true);
+                tablas.mostrarEmpleado(tablaEmpleado, Integer.parseInt(txtDni.getText()));
+            }
+            //empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDNI.getText()));
+       
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       System.out.println(dateIngreso.getCalendar().getTime());    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,12 +249,18 @@ public class GenerarContrato extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JComboBox<String> combxCategoria;
+    private com.toedter.calendar.JDateChooser dateIngreso;
+    private com.toedter.calendar.JDateChooser dateVencimiento;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labIngreso;
+    private javax.swing.JLabel labVencimiento;
+    private javax.swing.JLabel labelCat;
+    private javax.swing.JTable tablaEmpleado;
     private javax.swing.JTextField txtDni;
     // End of variables declaration//GEN-END:variables
 }
