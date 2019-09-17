@@ -1,10 +1,12 @@
 package VO;
 
+import java.sql.Date;
+
 public class HspersonalVO {
 
 /*Todo los atributos*/
     int idmovimientofilial;
-    String mes;
+    Date mesyanio;
     int idfilial;
     int horastrabajadas;
     int horasextras;
@@ -17,8 +19,8 @@ public HspersonalVO(){}
     public int getIdmovimientofilial(){
         return idmovimientofilial;
     }
-    public String getMes(){
-        return mes;
+    public Date getMes(){
+        return mesyanio;
     }
     public int getIdfilial(){
         return idfilial;
@@ -41,8 +43,8 @@ public HspersonalVO(){}
     public void setIdmovimientofilial(int idmovimientofilial){
         this.idmovimientofilial = idmovimientofilial;
     }
-    public void setMes(String mes){
-        this.mes = mes;
+    public void setMes(Date mesyanio){
+        this.mesyanio = mesyanio;
     }
     public void setIdfilial(int idfilial){
         this.idfilial = idfilial;

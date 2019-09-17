@@ -5,9 +5,10 @@
  */
 package javaapp;
 
-import DAO.EmpeladoDAO;
+import DAO.*;
 import Tabla.Tabla_EmpeladoVO;
 import VO.EmpeladoVO;
+import VO.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,9 @@ public class horasTrabajadas extends javax.swing.JFrame {
      */
     public horasTrabajadas() {
         initComponents();
+        FilialDAO filial = new FilialDAO();
+        filial.Listar_filial_ComboBOX(combxFilial);
+
     }
 
     /**
@@ -41,12 +45,16 @@ public class horasTrabajadas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtDNI = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jDateFechaRegistro = new com.toedter.calendar.JDateChooser();
+        dateFechaTraba = new com.toedter.calendar.JDateChooser();
         btnBuscar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaEmpleado = new javax.swing.JTable();
         btnRegistrar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtHorasTraba = new javax.swing.JTextField();
+        combxFilial = new javax.swing.JComboBox<>();
+        labelCat = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,30 +126,27 @@ public class horasTrabajadas extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tablaEmpleado);
 
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Horas Trabajadas");
+
+        combxFilial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combxFilial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combxFilialActionPerformed(evt);
+            }
+        });
+
+        labelCat.setText("Seleccionar Categoria");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDateFechaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(btnAtras)
@@ -150,6 +155,36 @@ public class horasTrabajadas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRegistrar)
                 .addGap(22, 22, 22))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtHorasTraba, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dateFechaTraba, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jLabel1))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(27, 27, 27)
+                                        .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelCat)
+                        .addGap(18, 18, 18)
+                        .addComponent(combxFilial, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,10 +199,18 @@ public class horasTrabajadas extends javax.swing.JFrame {
                             .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jDateFechaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateFechaTraba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtHorasTraba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combxFilial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(btnAtras)
@@ -213,6 +256,47 @@ public class horasTrabajadas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+      
+        //EmpeladoVO em = new EmpeladoVO();
+        HspersonalVO hs = new HspersonalVO();
+        FilialVO fil = new FilialVO();
+        //EmpeladoDAO emdao = new EmpeladoDAO();
+        HspersonalDAO hsdao = new HspersonalDAO();
+        FilialDAO fildao = new FilialDAO();
+        java.sql.Date sqlDateI = new java.sql.Date(dateFechaTraba.getDate().getTime());
+        
+        try {
+            hs.setMes(sqlDateI);
+            if (combxFilial.getSelectedIndex() == 0){
+            hs.setIdfilial(5);
+        } else{
+            if(combxFilial.getSelectedIndex() == 1){
+                 hs.setIdfilial(6);
+            }
+        }
+            hs.setHorastrabajadas(Integer.parseInt(txtHorasTraba.getText()));
+            hs.setHorasextras(0);
+            hs.setComentarios("");
+            hs.setDni(Integer.parseInt(txtDNI.getText()));
+ 
+            hsdao.Agregar_HspersonalVO(hs);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        
+        
+
+
+
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void combxFilialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combxFilialActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_combxFilialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -252,17 +336,21 @@ public class horasTrabajadas extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnRegistrar;
-    private com.toedter.calendar.JDateChooser jDateFechaRegistro;
+    private javax.swing.JComboBox<String> combxFilial;
+    private com.toedter.calendar.JDateChooser dateFechaTraba;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JLabel labelCat;
     private javax.swing.JTable tablaEmpleado;
     private javax.swing.JTextField txtDNI;
+    private javax.swing.JTextField txtHorasTraba;
     // End of variables declaration//GEN-END:variables
 }
