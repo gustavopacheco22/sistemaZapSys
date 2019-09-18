@@ -45,10 +45,11 @@ public class HspersonalDAO{
 
 
 /*Metodo agregar*/
-    public void Agregar_HspersonalVO(HspersonalVO vo){
+    public int  Agregar_HspersonalVO(HspersonalVO vo){
         Conectar conec = new Conectar();
         String sql = "INSERT INTO `hspersonal`(`mes y anio`, `idFilial`, `horasTrabajadas`, `horasExtras`, `comentarios`, `DNI`) VALUES (?,?,?,?,?,?);";
         PreparedStatement ps = null;
+        int resul = 0;
         try{
             ps = conec.getConnection().prepareStatement(sql);
  
@@ -58,7 +59,7 @@ public class HspersonalDAO{
             ps.setInt(4, vo.getHorasextras());
             ps.setString(5, vo.getComentarios());
             ps.setInt(6, vo.getDni());
-            ps.executeUpdate();
+            resul = ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }catch(Exception ex){
@@ -67,8 +68,11 @@ public class HspersonalDAO{
             try{
                 ps.close();
                 conec.desconectar();
+                //return resul;
             }catch(Exception ex){}
         }
+        return resul;
+
     }
 
 
