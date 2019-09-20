@@ -24,7 +24,7 @@ public class RetenycontDAO{
                 vo.setPorcapjub(rs.getInt(2));
                 vo.setPorcobsoc(rs.getInt(3));
                 vo.setPorsind(rs.getInt(4));
-                vo.setFechavigencia(rs.getInt(5));
+                vo.setFechavigencia(rs.getDate(5));
                 list.add(vo);
             }
         }catch(SQLException ex){
@@ -53,7 +53,7 @@ public class RetenycontDAO{
             ps.setInt(2, vo.getPorcapjub());
             ps.setInt(3, vo.getPorcobsoc());
             ps.setInt(4, vo.getPorsind());
-            ps.setInt(5, vo.getFechavigencia());
+            ps.setDate(5, vo.getFechavigencia());
             ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -79,7 +79,7 @@ public class RetenycontDAO{
             ps.setInt(2, vo.getPorcapjub());
             ps.setInt(3, vo.getPorcobsoc());
             ps.setInt(4, vo.getPorsind());
-            ps.setInt(5, vo.getFechavigencia());
+            ps.setDate(5, vo.getFechavigencia());
             ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -105,7 +105,7 @@ public class RetenycontDAO{
             ps.setInt(2, vo.getPorcapjub());
             ps.setInt(3, vo.getPorcobsoc());
             ps.setInt(4, vo.getPorsind());
-            ps.setInt(5, vo.getFechavigencia());
+            ps.setDate(5, vo.getFechavigencia());
             ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -119,5 +119,47 @@ public class RetenycontDAO{
         }
     }
 
+    
+     public RetenycontVO BuscarRetenciones(int ret) {
+        Conectar conec = new Conectar();
+        String sql = "SELECT * FROM retenycont WHERE idretcon = ?";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        RetenycontVO vo = null;
+        try {
+            ps = conec.getConnection().prepareStatement(sql);
+            ps.setInt(1, ret);
+            rs = ps.executeQuery();
+            
+            /*Todo los atributos*/
+//            int idretcon;
+//            int porcapjub;
+//            int porcobsoc;
+//            int porsind;
+//            int fechavigencia;
+
+            if (rs.first()) {
+                vo = new RetenycontVO();
+                vo.setIdretcon(rs.getInt(1));
+                vo.setPorcapjub(rs.getInt(2));
+                vo.setPorcobsoc(rs.getInt(3));
+                vo.setPorsind(rs.getInt(4));
+                vo.setFechavigencia(rs.getDate(5));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        return vo;
+    }
 
 }

@@ -9,6 +9,8 @@ import DAO.CategoriaDAO;
 import DAO.ContratoDAO;
 import DAO.EmpeladoDAO;
 import DAO.HspersonalDAO;
+import DAO.RetenycontDAO;
+import DAO.SueldoDAO;
 import Tabla.Tabla_CategoriaVO;
 import Tabla.Tabla_EmpeladoVO;
 import Tabla.Tabla_ContratoVO;
@@ -17,6 +19,9 @@ import VO.CategoriaVO;
 import VO.ContratoVO;
 import VO.EmpeladoVO;
 import VO.HspersonalVO;
+import VO.RetenycontVO;
+import VO.SueldoVO;
+import java.util.ArrayList;
 
 /**
  *
@@ -59,6 +64,7 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         btnSueldo = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaHs = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,6 +144,8 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tablaHs);
 
+        jButton1.setText("Imprimir (falta)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -167,14 +175,19 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(403, 403, 403)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dateMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dateAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(403, 403, 403)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dateMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(dateAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(163, 163, 163)
+                                        .addComponent(jButton1)))
                                 .addGap(39, 39, 39)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnBuscar)
@@ -217,7 +230,8 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtras)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(jButton1))
                 .addGap(28, 28, 28))
         );
 
@@ -249,14 +263,22 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
             HspersonalVO hs = new HspersonalVO();
             HspersonalDAO daohs = new HspersonalDAO();
             Tabla_HspersonalVO tablaHS = new Tabla_HspersonalVO();
-            
+            double montoHsTraba = 0;
+            double montoHsExtra = 0;
             int categoria  ;
 
             //empleado = dempleado.Buscar_Empleado_Activo(Integer.parseInt(txtDNI.getText()));
             tabla.mostrarEmpleadoXEstado(tablaEmpleado, Integer.parseInt(txtDNI.getText()));
             categoria = tabla1.mostrarContratoXDni(tablaContrato, Integer.parseInt(txtDNI.getText()));
+                      
             tabla2.mostrarCategoriaXid(tableCategoria, categoria);
             tablaHS.mostrarHSPersonalXDni(tablaHs, Integer.parseInt(txtDNI.getText()));
+            
+           // montoHsTraba = cat.getMontoacobrar()* hs.getHorastrabajadas();
+            //montoHsExtra = cat.getMontoacobrar()* hs.getHorasextras();
+            
+            
+            
             
             
             
@@ -277,8 +299,66 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSueldoActionPerformed
-        
+        EmpeladoVO empleado = new EmpeladoVO();
+        EmpeladoDAO dempleado = new EmpeladoDAO();
+        ContratoVO cont = new ContratoVO();
+        ContratoDAO daocont = new ContratoDAO();
+        CategoriaVO cat = new CategoriaVO();
+        CategoriaDAO daocat = new CategoriaDAO(); 
+        HspersonalVO hs = new HspersonalVO();
+        HspersonalDAO daohs = new HspersonalDAO();
+        RetenycontVO ret = new RetenycontVO();
+        RetenycontDAO daoret = new RetenycontDAO();
+        double montoHsTraba = 0;
+        double montoHsExtra = 0;
+        double montoSindi = 0;
+        double montoJubil = 0;
+        double montoObra = 0;
+        double montoAporteJub = 0;        
+        double montoAporteObra = 0;
+        double netoACobrar = 0;
 
+
+        
+        empleado = dempleado.Buscar_Empleado_Activo(Integer.parseInt(txtDNI.getText()));
+        cont = daocont.BuscarContratoXDni(Integer.parseInt(txtDNI.getText()));
+        cat = daocat.buscarCategoriaXid(cont.getIdcategoria());
+        hs = daohs.BuscarHsPersonalxDNI(Integer.parseInt(txtDNI.getText()));
+        ret = daoret.BuscarRetenciones(1);
+        //ret.toString();
+        montoHsTraba = cat.getMontoacobrar()* hs.getHorastrabajadas();
+        montoHsExtra = cat.getMontoacobrar()* hs.getHorasextras();
+        montoSindi = cat.getMontoacobrar()* ret.getPorsind();
+        montoJubil = cat.getMontoacobrar()* ret.getPorcapjub();
+        montoObra = cat.getMontoacobrar()* ret.getPorcobsoc();
+        montoAporteJub = montoAporteJub + montoJubil;
+        montoAporteObra = montoAporteObra + montoObra;
+        netoACobrar = (montoHsTraba + montoHsExtra) - montoJubil - montoObra - montoSindi;
+        
+        System.out.println(dateMes.getMonth());
+        try {
+            SueldoVO sueldo = new SueldoVO();
+            SueldoDAO daosueldo = new SueldoDAO();
+            
+            sueldo.setDni(Integer.parseInt(txtDNI.getText()));
+            sueldo.setMes((dateMes.getMonth()+1));
+            sueldo.setAnio(dateAnio.getYear());
+            sueldo.setIdretcon(1);
+            sueldo.setSueldobase(montoHsTraba);
+            sueldo.setMontosindicato(montoSindi);
+            sueldo.setMontohsex(montoHsExtra);
+            sueldo.setMontojubilacion(montoJubil);
+            sueldo.setMontoobrasocial(montoObra);
+            sueldo.setMontodeaporteju(montoAporteJub);
+            sueldo.setMontodeaporteobsoc(montoAporteObra);
+            sueldo.setNetocobrar(netoACobrar);
+            
+            daosueldo.Agregar_SueldoVO(sueldo);
+            
+            
+        } catch (Exception e) {
+        }
+        
 
 
     }//GEN-LAST:event_btnSueldoActionPerformed
@@ -324,6 +404,7 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
     private javax.swing.JButton btnSueldo;
     private com.toedter.calendar.JYearChooser dateAnio;
     private com.toedter.calendar.JMonthChooser dateMes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -1,5 +1,7 @@
 package VO;
 
+import java.sql.Date;
+
 public class RetenycontVO {
 
 /*Todo los atributos*/
@@ -7,8 +9,7 @@ public class RetenycontVO {
     int porcapjub;
     int porcobsoc;
     int porsind;
-
-    int fechavigencia;
+    Date fechavigencia;
 
 public RetenycontVO(){}
 
@@ -26,7 +27,7 @@ public RetenycontVO(){}
         return porsind;
     }
 
-    public int getFechavigencia(){
+    public Date getFechavigencia(){
         return fechavigencia;
     }
 
@@ -45,7 +46,7 @@ public RetenycontVO(){}
         this.porsind = porsind;
     }
 
-    public void setFechavigencia(int fechavigencia){
+    public void setFechavigencia(Date fechavigencia){
         this.fechavigencia = fechavigencia;
     }
 

@@ -5,17 +5,17 @@ public class SueldoVO {
 /*Todo los atributos*/
     int idsueldo;
     int dni;
-    String mes;
-    String anio;
+    int mes;
+    int anio;
     int idretcon;
-    int sueldobase;
-    int montosindicato;
-    int montohsex;
-    int montojubilacion;
-    int montoobrasocial;
-    int montodeaporteju;
-    int montodeaporteobsoc;
-    int netocobrar;
+    double sueldobase;
+    double montosindicato;
+    double montohsex;
+    double montojubilacion;
+    double montoobrasocial;
+    double montodeaporteju;
+    double montodeaporteobsoc;
+    double netocobrar;
 
 public SueldoVO(){}
 
@@ -26,37 +26,37 @@ public SueldoVO(){}
     public int getDni(){
         return dni;
     }
-    public String getMes(){
+    public int getMes(){
         return mes;
     }
-    public String getAnio(){
+    public int getAnio(){
         return anio;
     }
     public int getIdretcon(){
         return idretcon;
     }
-    public int getSueldobase(){
+    public double getSueldobase(){
         return sueldobase;
     }
-    public int getMontosindicato(){
+    public double getMontosindicato(){
         return montosindicato;
     }
-    public int getMontohsex(){
+    public double getMontohsex(){
         return montohsex;
     }
-    public int getMontojubilacion(){
+    public double getMontojubilacion(){
         return montojubilacion;
     }
-    public int getMontoobrasocial(){
+    public double getMontoobrasocial(){
         return montoobrasocial;
     }
-    public int getMontodeaporteju(){
+    public double getMontodeaporteju(){
         return montodeaporteju;
     }
-    public int getMontodeaporteobsoc(){
+    public double getMontodeaporteobsoc(){
         return montodeaporteobsoc;
     }
-    public int getNetocobrar(){
+    public double getNetocobrar(){
         return netocobrar;
     }
 
@@ -68,37 +68,37 @@ public SueldoVO(){}
     public void setDni(int dni){
         this.dni = dni;
     }
-    public void setMes(String mes){
+    public void setMes(int mes){
         this.mes = mes;
     }
-    public void setAnio(String anio){
+    public void setAnio(int anio){
         this.anio = anio;
     }
     public void setIdretcon(int idretcon){
         this.idretcon = idretcon;
     }
-    public void setSueldobase(int sueldobase){
+    public void setSueldobase(double sueldobase){
         this.sueldobase = sueldobase;
     }
-    public void setMontosindicato(int montosindicato){
+    public void setMontosindicato(double montosindicato){
         this.montosindicato = montosindicato;
     }
-    public void setMontohsex(int montohsex){
+    public void setMontohsex(double montohsex){
         this.montohsex = montohsex;
     }
-    public void setMontojubilacion(int montojubilacion){
+    public void setMontojubilacion(double montojubilacion){
         this.montojubilacion = montojubilacion;
     }
-    public void setMontoobrasocial(int montoobrasocial){
+    public void setMontoobrasocial(double montoobrasocial){
         this.montoobrasocial = montoobrasocial;
     }
-    public void setMontodeaporteju(int montodeaporteju){
+    public void setMontodeaporteju(double montodeaporteju){
         this.montodeaporteju = montodeaporteju;
     }
-    public void setMontodeaporteobsoc(int montodeaporteobsoc){
+    public void setMontodeaporteobsoc(double montodeaporteobsoc){
         this.montodeaporteobsoc = montodeaporteobsoc;
     }
-    public void setNetocobrar(int netocobrar){
+    public void setNetocobrar(double netocobrar){
         this.netocobrar = netocobrar;
     }
 

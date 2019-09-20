@@ -56,7 +56,7 @@ public class Tabla_CategoriaVO{
                 dt.addRow(fila);
             
             tabla.setModel(dt);
-        
+        //return vo;
     }
 }
 

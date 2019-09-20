@@ -5,6 +5,7 @@ import VO.ContratoVO;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class Tabla_ContratoVO{
@@ -53,6 +54,11 @@ public class Tabla_ContratoVO{
         dao = new ContratoDAO();
         //ContratoVO vo = new ContratoVO();
         ContratoVO vo = dao.BuscarContratoXDni(dni);
+        
+        if(vo == null){
+            JOptionPane.showMessageDialog(tabla, "El contrato no esta Activo");
+            
+        }
 
         
                 Object fila[] = new Object[6];

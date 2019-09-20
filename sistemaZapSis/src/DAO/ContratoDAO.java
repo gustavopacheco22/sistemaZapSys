@@ -122,7 +122,7 @@ public class ContratoDAO{
                 conec.desconectar();
             }catch(Exception ex){}
         }
-    }
+    }   
     
     public ContratoVO BuscarContratoXDni(int dni) {
         Conectar conec = new Conectar();
@@ -166,6 +166,6 @@ public class ContratoDAO{
         }
         return vo;
     }
-
+    
 
 }

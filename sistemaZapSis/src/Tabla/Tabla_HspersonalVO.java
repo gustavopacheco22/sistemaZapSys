@@ -71,7 +71,7 @@ public class Tabla_HspersonalVO{
             
             tabla.setModel(dt);
             
-            //return vo.getIdcategoria();
+            //return vo;
         }
 }
 
