@@ -24,9 +24,7 @@ public class RetenycontDAO{
                 vo.setPorcapjub(rs.getInt(2));
                 vo.setPorcobsoc(rs.getInt(3));
                 vo.setPorsind(rs.getInt(4));
-                vo.setPorapjubpat(rs.getInt(5));
-                vo.setPorobsocpat(rs.getInt(6));
-                vo.setFechavigencia(rs.getInt(7));
+                vo.setFechavigencia(rs.getInt(5));
                 list.add(vo);
             }
         }catch(SQLException ex){
@@ -55,9 +53,7 @@ public class RetenycontDAO{
             ps.setInt(2, vo.getPorcapjub());
             ps.setInt(3, vo.getPorcobsoc());
             ps.setInt(4, vo.getPorsind());
-            ps.setInt(5, vo.getPorapjubpat());
-            ps.setInt(6, vo.getPorobsocpat());
-            ps.setInt(7, vo.getFechavigencia());
+            ps.setInt(5, vo.getFechavigencia());
             ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -83,9 +79,7 @@ public class RetenycontDAO{
             ps.setInt(2, vo.getPorcapjub());
             ps.setInt(3, vo.getPorcobsoc());
             ps.setInt(4, vo.getPorsind());
-            ps.setInt(5, vo.getPorapjubpat());
-            ps.setInt(6, vo.getPorobsocpat());
-            ps.setInt(7, vo.getFechavigencia());
+            ps.setInt(5, vo.getFechavigencia());
             ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -111,9 +105,7 @@ public class RetenycontDAO{
             ps.setInt(2, vo.getPorcapjub());
             ps.setInt(3, vo.getPorcobsoc());
             ps.setInt(4, vo.getPorsind());
-            ps.setInt(5, vo.getPorapjubpat());
-            ps.setInt(6, vo.getPorobsocpat());
-            ps.setInt(7, vo.getFechavigencia());
+            ps.setInt(5, vo.getFechavigencia());
             ps.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());

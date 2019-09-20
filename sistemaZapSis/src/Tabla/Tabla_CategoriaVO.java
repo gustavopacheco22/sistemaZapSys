@@ -34,6 +34,30 @@ public class Tabla_CategoriaVO{
             tabla.setModel(dt);
         }
     }
+    
+    
+    public void mostrarCategoriaXid(JTable tabla, int id){
+        DefaultTableModel dt = new DefaultTableModel();
+        dt.addColumn("idcategoria");
+        dt.addColumn("montoacobrar");
+        dt.addColumn("descripcion");
+
+        dao = new CategoriaDAO();
+        //CategoriaVO vo = new CategoriaVO();
+        CategoriaVO vo = dao.buscarCategoriaXid(id);
+
+        
+          
+                Object fila[] = new Object[3];
+             
+                fila[0] = vo.getIdcategoria();
+                fila[1] = vo.getMontoacobrar();
+                fila[2] = vo.getDescripcion();
+                dt.addRow(fila);
+            
+            tabla.setModel(dt);
+        
+    }
 }
 
 

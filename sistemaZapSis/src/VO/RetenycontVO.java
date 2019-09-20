@@ -7,8 +7,7 @@ public class RetenycontVO {
     int porcapjub;
     int porcobsoc;
     int porsind;
-    int porapjubpat;
-    int porobsocpat;
+
     int fechavigencia;
 
 public RetenycontVO(){}
@@ -26,12 +25,7 @@ public RetenycontVO(){}
     public int getPorsind(){
         return porsind;
     }
-    public int getPorapjubpat(){
-        return porapjubpat;
-    }
-    public int getPorobsocpat(){
-        return porobsocpat;
-    }
+
     public int getFechavigencia(){
         return fechavigencia;
     }
@@ -50,12 +44,7 @@ public RetenycontVO(){}
     public void setPorsind(int porsind){
         this.porsind = porsind;
     }
-    public void setPorapjubpat(int porapjubpat){
-        this.porapjubpat = porapjubpat;
-    }
-    public void setPorobsocpat(int porobsocpat){
-        this.porobsocpat = porobsocpat;
-    }
+
     public void setFechavigencia(int fechavigencia){
         this.fechavigencia = fechavigencia;
     }

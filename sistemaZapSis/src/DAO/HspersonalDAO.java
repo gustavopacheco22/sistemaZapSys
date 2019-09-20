@@ -131,5 +131,52 @@ public class HspersonalDAO{
         }
     }
 
+    
+    public HspersonalVO BuscarHsPersonalxDNI(int dni) {
+        Conectar conec = new Conectar();
+        String sql = "SELECT * FROM hspersonal where DNI=?";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        HspersonalVO vo = null;
+        try {
+            ps = conec.getConnection().prepareStatement(sql);
+            ps.setInt(1, dni);
+            rs = ps.executeQuery();
+            
+////               /*Todo los atributos*/
+                //    int idmovimientofilial;
+                //    Date mesyanio;
+                //    int idfilial;
+                //    int horastrabajadas;
+                //    int horasextras;
+                //    String comentarios;
+                //    int dni;
+
+
+            if (rs.first()) {
+                vo = new HspersonalVO();
+                vo.setIdmovimientofilial(rs.getInt(1));
+                vo.setMes(rs.getDate(2));
+                vo.setIdfilial(rs.getInt(3));
+                vo.setHorastrabajadas(rs.getInt(4));
+                vo.setHorasextras(rs.getInt(5));
+                vo.setComentarios(rs.getString(6));
+                vo.setDni(dni);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        return vo;
+    }
 
 }

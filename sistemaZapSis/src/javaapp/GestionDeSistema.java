@@ -32,7 +32,7 @@ public class GestionDeSistema extends javax.swing.JFrame {
         btnGesEmpleados = new javax.swing.JButton();
         btnGesHoras = new javax.swing.JButton();
         btnGesInformes = new javax.swing.JButton();
-        GesLiquidSueld = new javax.swing.JButton();
+        btnSueldo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
 
@@ -62,8 +62,13 @@ public class GestionDeSistema extends javax.swing.JFrame {
             }
         });
 
-        GesLiquidSueld.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
-        GesLiquidSueld.setText("Liquidacion de Sueldos");
+        btnSueldo.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
+        btnSueldo.setText("Liquidacion de Sueldos");
+        btnSueldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSueldoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jLabel1.setText("ZapSys");
@@ -88,7 +93,7 @@ public class GestionDeSistema extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnGesHoras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GesLiquidSueld, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSueldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(59, 59, 59))
             .addGroup(layout.createSequentialGroup()
                 .addGap(285, 285, 285)
@@ -111,7 +116,7 @@ public class GestionDeSistema extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGesInformes)
-                    .addComponent(GesLiquidSueld))
+                    .addComponent(btnSueldo))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar)
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -143,6 +148,12 @@ public class GestionDeSistema extends javax.swing.JFrame {
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGesHorasActionPerformed
+
+    private void btnSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSueldoActionPerformed
+        GestionReciboSueldo ventana = new GestionReciboSueldo();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSueldoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,11 +191,11 @@ public class GestionDeSistema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GesLiquidSueld;
     private javax.swing.JButton btnGesEmpleados;
     private javax.swing.JButton btnGesHoras;
     private javax.swing.JButton btnGesInformes;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnSueldo;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -123,6 +123,49 @@ public class ContratoDAO{
             }catch(Exception ex){}
         }
     }
+    
+    public ContratoVO BuscarContratoXDni(int dni) {
+        Conectar conec = new Conectar();
+        String sql = "SELECT * FROM contrato where DNI=? AND estado = 1;";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        ContratoVO vo = null;
+        try {
+            ps = conec.getConnection().prepareStatement(sql);
+            ps.setInt(1, dni);
+            rs = ps.executeQuery();
+            
+//                int idcontrato;
+//                Date fechafirma;
+//                Date fechavencimiento;
+//                int estado;
+//                int dni;
+//                int idcategoria;
+
+            if (rs.first()) {
+                vo = new ContratoVO();
+                vo.setIdcontrato(rs.getInt(1));
+                vo.setFechafirma(rs.getDate(2));
+                vo.setFechavencimiento(rs.getDate(3));
+                vo.setEstado(rs.getInt(4));
+                vo.setDni(rs.getInt(5));
+                vo.setIdcategoria(rs.getInt(6));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        return vo;
+    }
 
 
 }

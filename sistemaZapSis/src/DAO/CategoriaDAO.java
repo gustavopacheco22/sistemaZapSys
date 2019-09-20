@@ -50,7 +50,7 @@ public class CategoriaDAO{
         try{
             ps = conec.getConnection().prepareStatement(sql);
             ps.setInt(1, vo.getIdcategoria());
-            ps.setInt(2, vo.getMontoacobrar());
+            ps.setDouble(2, vo.getMontoacobrar());
             ps.setString(3, vo.getDescripcion());
             ps.executeUpdate();
         }catch(SQLException ex){
@@ -74,7 +74,7 @@ public class CategoriaDAO{
         try{
             ps = conec.getConnection().prepareStatement(sql);
             ps.setInt(1, vo.getIdcategoria());
-            ps.setInt(2, vo.getMontoacobrar());
+            ps.setDouble(2, vo.getMontoacobrar());
             ps.setString(3, vo.getDescripcion());
             ps.executeUpdate();
         }catch(SQLException ex){
@@ -98,7 +98,7 @@ public class CategoriaDAO{
         try{
             ps = conec.getConnection().prepareStatement(sql);
             ps.setInt(1, vo.getIdcategoria());
-            ps.setInt(2, vo.getMontoacobrar());
+            ps.setDouble(2, vo.getMontoacobrar());
             ps.setString(3, vo.getDescripcion());
             ps.executeUpdate();
         }catch(SQLException ex){
@@ -142,5 +142,42 @@ public class CategoriaDAO{
         
     }
 
+    
+    public CategoriaVO buscarCategoriaXid(int cat) {
+        Conectar conec = new Conectar();
+        String sql = "SELECT * FROM `categoria` WHERE idcategoria = ?;";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        CategoriaVO vo = null;
+        try {
+            ps = conec.getConnection().prepareStatement(sql);
+            ps.setInt(1, cat);
+            rs = ps.executeQuery();
+            
+//            int idcategoria;
+//            int montoacobrar;
+//            String descripcion;
+
+            if (rs.first()) {
+                vo = new CategoriaVO();
+                vo.setIdcategoria(rs.getInt(1));
+                vo.setMontoacobrar(rs.getDouble(2));
+                vo.setDescripcion(rs.getString(3));
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            } catch (Exception ex) {
+            }
+        }
+        return vo;
+    }
 
 }

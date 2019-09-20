@@ -18,8 +18,7 @@ public class Tabla_RetenycontVO{
         dt.addColumn("porcapjub");
         dt.addColumn("porcobsoc");
         dt.addColumn("porsind");
-        dt.addColumn("porapjubpat");
-        dt.addColumn("porobsocpat");
+
         dt.addColumn("fechavigencia");
 
         dao = new RetenycontDAO();
@@ -34,8 +33,6 @@ public class Tabla_RetenycontVO{
                 fila[1] = vo.getPorcapjub();
                 fila[2] = vo.getPorcobsoc();
                 fila[3] = vo.getPorsind();
-                fila[4] = vo.getPorapjubpat();
-                fila[5] = vo.getPorobsocpat();
                 fila[6] = vo.getFechavigencia();
                 dt.addRow(fila);
             }

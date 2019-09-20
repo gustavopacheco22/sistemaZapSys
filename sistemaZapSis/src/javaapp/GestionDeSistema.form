@@ -32,7 +32,7 @@
               <EmptySpace pref="146" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnGesHoras" max="32767" attributes="0"/>
-                  <Component id="GesLiquidSueld" max="32767" attributes="0"/>
+                  <Component id="btnSueldo" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
           </Group>
@@ -61,7 +61,7 @@
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnGesInformes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="GesLiquidSueld" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSueldo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnRegresar" min="-2" max="-2" attributes="0"/>
@@ -104,13 +104,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGesInformesActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="GesLiquidSueld">
+    <Component class="javax.swing.JButton" name="btnSueldo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="DialogInput" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Liquidacion de Sueldos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSueldoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

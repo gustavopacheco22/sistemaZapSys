@@ -42,6 +42,37 @@ public class Tabla_HspersonalVO{
             tabla.setModel(dt);
         }
     }
+    
+    public void mostrarHSPersonalXDni(JTable tabla, int dni){
+        DefaultTableModel dt = new DefaultTableModel();
+        dt.addColumn("idmovimientofilial");
+        dt.addColumn("mes");
+        dt.addColumn("idfilial");
+        dt.addColumn("horastrabajadas");
+        dt.addColumn("horasextras");
+        dt.addColumn("comentarios");
+        dt.addColumn("dni");
+
+        dao = new HspersonalDAO();
+        //ContratoVO vo = new ContratoVO();
+        HspersonalVO vo = dao.BuscarHsPersonalxDNI(dni);
+
+        
+                Object fila[] = new Object[7];
+                
+                fila[0] = vo.getIdmovimientofilial();
+                fila[1] = vo.getMes();
+                fila[2] = vo.getIdfilial();
+                fila[3] = vo.getHorastrabajadas();
+                fila[4] = vo.getHorasextras();
+                fila[5] = vo.getComentarios();
+                fila[6] = vo.getDni();
+                dt.addRow(fila);
+            
+            tabla.setModel(dt);
+            
+            //return vo.getIdcategoria();
+        }
 }
 
 
