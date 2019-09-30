@@ -40,7 +40,7 @@ public class GestionEmpleados extends javax.swing.JFrame {
         jLabel1.setText("Gestion de Empleados");
 
         btnRegresar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnRegresar.setText("Regresar");
+        btnRegresar.setText("Atras");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -90,7 +90,7 @@ public class GestionEmpleados extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addComponent(btnRegresar)))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +104,7 @@ public class GestionEmpleados extends javax.swing.JFrame {
                     .addComponent(btnAltaEmp1))
                 .addGap(50, 50, 50)
                 .addComponent(btnRegresar)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
