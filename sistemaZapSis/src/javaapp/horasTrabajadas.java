@@ -247,6 +247,8 @@ public class horasTrabajadas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        GestionDeSistema ventana = new GestionDeSistema();
+        ventana.setVisible(true);        
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
