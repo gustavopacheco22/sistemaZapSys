@@ -1,5 +1,11 @@
 package vistaLogin;
 
+import javaapp.GestionDeSistema;
+import javax.swing.JOptionPane;
+import modeloLogin.Hash;
+import modeloLogin.SqlUsuarios;
+import modeloLogin.Usuarios;
+
 public class frm_Menu extends javax.swing.JFrame {
 
     public frm_Menu() {
@@ -18,74 +24,121 @@ public class frm_Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabelcono = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        txtUsuario = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        ok = new javax.swing.JButton();
+        jLabelUser = new javax.swing.JLabel();
+        jLabelPass = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
-        jLabel1.setText("Menu");
+        jLabelcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/304a38cb-167a-4dac-b2db-9ff975525191_200x200.png"))); // NOI18N
+        jLabelcono.setMaximumSize(new java.awt.Dimension(200, 200));
+        jLabelcono.setMinimumSize(new java.awt.Dimension(200, 200));
+        jLabelcono.setPreferredSize(new java.awt.Dimension(150, 150));
+        getContentPane().add(jLabelcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 220, 160));
 
-        jButton1.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
-        jButton3.setText("Registrarse");
+        jButton3.setBackground(new java.awt.Color(204, 204, 204));
+        jButton3.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("SIGN UP");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 453, 90, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addGap(29, 29, 29))
-        );
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 264, 230, 30));
+
+        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 312, 230, 30));
+
+        ok.setBackground(new java.awt.Color(204, 204, 204));
+        ok.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        ok.setForeground(new java.awt.Color(0, 0, 0));
+        ok.setText("LOGIN");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 280, -1));
+
+        jLabelUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486564400-account_81513.png"))); // NOI18N
+        getContentPane().add(jLabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 40, 40));
+
+        jLabelPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486564409-lock_81509.png"))); // NOI18N
+        getContentPane().add(jLabelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 50, 40));
+
+        jLabelFondo.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMarron.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frm_login ventana = new frm_login();
-        ventana.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         frm_alta ventana = new frm_alta();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        SqlUsuarios modSql = new SqlUsuarios();
+        Usuarios mod = new Usuarios();
+
+        String pass = new String(txtPassword.getPassword());
+
+        if (!txtUsuario.getText().equals("") && !pass.equals("")) {
+
+            String nuevoPass = Hash.sha1(pass);
+
+            mod.setUsuario(txtUsuario.getText());
+            mod.setPassword(nuevoPass);
+            int id = modSql.login(mod);
+            if (id != 0) {
+                GestionDeSistema home = new GestionDeSistema();
+                //Inicio.frmLog = null;
+                this.dispose();
+                JOptionPane.showMessageDialog(null, "Ingresaste Correctamente");
+                //home frmHome = new home(mod.getIdTipo(), id);
+                home.setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                //limpiar();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar sus datos");
+        }
+
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,9 +177,14 @@ public class frm_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelPass;
+    private javax.swing.JLabel jLabelUser;
+    private javax.swing.JLabel jLabelcono;
+    private javax.swing.JButton ok;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

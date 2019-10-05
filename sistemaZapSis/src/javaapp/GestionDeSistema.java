@@ -35,92 +35,64 @@ public class GestionDeSistema extends javax.swing.JFrame {
         btnSueldo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnGesEmpleados.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
+        btnGesEmpleados.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         btnGesEmpleados.setText("Gestion de Empleados");
         btnGesEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGesEmpleadosActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGesEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 228, 71));
 
-        btnGesHoras.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
+        btnGesHoras.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         btnGesHoras.setText("Gestion de Horas Trabajadas");
         btnGesHoras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGesHorasActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGesHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 250, 71));
 
-        btnGesInformes.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
+        btnGesInformes.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         btnGesInformes.setText("Gestion de Informes");
         btnGesInformes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGesInformesActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGesInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 228, 68));
 
-        btnSueldo.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
+        btnSueldo.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         btnSueldo.setText("Liquidacion de Sueldos");
         btnSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSueldoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 250, 68));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Gadugi", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ZapSys");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
-        btnRegresar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnRegresar.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         btnRegresar.setText("Atras");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGesEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                    .addComponent(btnGesInformes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGesHoras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSueldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(59, 59, 59))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(285, 285, 285)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegresar)
-                .addGap(321, 321, 321))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGesEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                    .addComponent(btnGesHoras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSueldo, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                    .addComponent(btnGesInformes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(btnRegresar)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/TRgo9i.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,5 +172,6 @@ public class GestionDeSistema extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnSueldo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
 }

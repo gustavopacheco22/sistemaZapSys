@@ -187,11 +187,11 @@ public class GenerarContrato extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dateVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labVencimiento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenerar)
                     .addComponent(btnAtras))
-                .addGap(108, 108, 108))
+                .addGap(90, 90, 90))
         );
 
         pack();
@@ -232,6 +232,7 @@ public class GenerarContrato extends javax.swing.JFrame {
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         ContratoDAO condao = new ContratoDAO();
         ContratoVO cont = new ContratoVO();
+        int i = 0;
         
 //        java.util.Calendar cal = Calendar.getInstance();
 //        java.util.Date utilDate = new java.util.Date();
@@ -249,7 +250,9 @@ public class GenerarContrato extends javax.swing.JFrame {
 
 
 
-
+        /*consultar por el tema de verificar el estado del empleado y porner como unico al estado 
+        del contrato con el dni del esmpleado*/
+        
         
         cont.setFechafirma(sqlDateI);
         cont.setFechavencimiento(sqlDateV);
@@ -263,7 +266,13 @@ public class GenerarContrato extends javax.swing.JFrame {
                  cont.setIdcategoria(6);
             }
         }
-        condao.Agregar_ContratoVO(cont);
+        i = condao.Agregar_ContratoVO(cont);
+        if (i > 0) {
+                JOptionPane.showMessageDialog(this, "Contrato Agregado Correctamente");
+        } else {
+                JOptionPane.showMessageDialog(this, "No se Pudo agregar el contrato");
+        }
+
         limpiar();
         
     }//GEN-LAST:event_btnGenerarActionPerformed

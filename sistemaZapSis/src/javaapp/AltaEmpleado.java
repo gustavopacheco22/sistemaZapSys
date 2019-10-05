@@ -195,6 +195,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
       // TODO add your handling code here;
       ///  JOptionPane.showMessageDialog(this,jComboBox1.getSelectedItem().toString());
       //JOptionPane.showConfirmDialog(this, evt)
+      int  i = 0;
         try {
             VO.EmpeladoVO empleados= new VO.EmpeladoVO();
             DAO.EmpeladoDAO dempleado= new DAO.EmpeladoDAO();
@@ -207,7 +208,13 @@ public class AltaEmpleado extends javax.swing.JFrame {
             empleados.setCorreoelectronico(txtCorreoElectronico.getText());
             empleados.setNombresindicato(combSindicato.getSelectedItem().toString());
             
-            dempleado.Agregar_EmpeladoVO(empleados);
+            i = dempleado.Agregar_EmpeladoVO(empleados);
+            
+            if (i > 0) {
+                JOptionPane.showMessageDialog(this, "Datos Agregados Correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "No se Pudo agregar los datos del empleado");
+            }
             
         } catch (Exception e) {
         }

@@ -134,10 +134,11 @@ public class EmpeladoDAO {
     }
 
     /*Metodo agregar*/
-    public void Agregar_EmpeladoVO(EmpeladoVO vo) {
+    public int Agregar_EmpeladoVO(EmpeladoVO vo) {
         Conectar conec = new Conectar();
         String sql = "INSERT INTO empleado (DNI, nombre, apellido, telefono, domicilio, correoElectronico, estado, nombreSindicato) VALUES(?,?,?,?,?,?,?,?);";
         PreparedStatement ps = null;
+        int resultado = 0;
         try {
             ps = conec.getConnection().prepareStatement(INSERT);
             ps.setInt(1, vo.getDni());
@@ -148,7 +149,7 @@ public class EmpeladoDAO {
             ps.setString(6, vo.getCorreoelectronico());
             ps.setInt(7, vo.getEstado());
             ps.setString(8, vo.getNombresindicato());
-            ps.executeUpdate();
+            resultado = ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } catch (Exception ex) {
@@ -159,6 +160,7 @@ public class EmpeladoDAO {
                 conec.desconectar();
             } catch (Exception ex) {
             }
+        return resultado;
         }
     }
 

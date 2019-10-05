@@ -44,10 +44,11 @@ public class ContratoDAO{
 
 
 /*Metodo agregar*/
-    public void Agregar_ContratoVO(ContratoVO vo){
+    public int Agregar_ContratoVO(ContratoVO vo){
         Conectar conec = new Conectar();
         String sql = "INSERT INTO contrato (fechaFirma, fechaVencimiento, DNI, idCategoria) VALUES(?,?, ?, ?);";
         PreparedStatement ps = null;
+        int resultado = 0;
         try{
             ps = conec.getConnection().prepareStatement(sql);
             //ps.setInt(1, vo.getIdcontrato());
@@ -56,7 +57,7 @@ public class ContratoDAO{
             //ps.setInt(3, vo.getEstado());
             ps.setInt(3, vo.getDni());
             ps.setInt(4, vo.getIdcategoria());
-            ps.executeUpdate();
+            resultado = ps.executeUpdate();
             
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -67,6 +68,7 @@ public class ContratoDAO{
                 ps.close();
                 conec.desconectar();
             }catch(Exception ex){}
+            return resultado;
         }
     }
 
