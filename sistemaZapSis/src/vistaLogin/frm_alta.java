@@ -90,7 +90,9 @@ public class frm_alta extends javax.swing.JFrame {
         jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconfinder_browser-web-content_532739.png"))); // NOI18N
         getContentPane().add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
 
-        btnCancel.setFont(new java.awt.Font("Corbel Light", 1, 12)); // NOI18N
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancel.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 0, 0));
         btnCancel.setText("CANCEL");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +101,9 @@ public class frm_alta extends javax.swing.JFrame {
         });
         getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, 30));
 
+        btnRegistrarse.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrarse.setText("SIGN UP");
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
