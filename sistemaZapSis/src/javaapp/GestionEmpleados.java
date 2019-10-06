@@ -33,11 +33,15 @@ public class GestionEmpleados extends javax.swing.JFrame {
         btnGenCont = new javax.swing.JButton();
         btnBajEmp = new javax.swing.JButton();
         btnAltaEmp1 = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gestion de Empleados");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         btnRegresar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnRegresar.setText("Atras");
@@ -46,67 +50,66 @@ public class GestionEmpleados extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
 
-        btnGenCont.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btnGenCont.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnGenCont.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenCont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono_Cont.png"))); // NOI18N
         btnGenCont.setText("Generar Contrato");
+        btnGenCont.setBorderPainted(false);
+        btnGenCont.setContentAreaFilled(false);
+        btnGenCont.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenCont.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGenCont.setIconTextGap(-3);
+        btnGenCont.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGenCont.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnGenCont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenContActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGenCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 200, 140));
 
-        btnBajEmp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btnBajEmp.setBackground(new java.awt.Color(255, 255, 255));
+        btnBajEmp.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnBajEmp.setForeground(new java.awt.Color(255, 255, 255));
+        btnBajEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono_UsrBaja.png"))); // NOI18N
         btnBajEmp.setText("Baja Empleado");
+        btnBajEmp.setBorderPainted(false);
+        btnBajEmp.setContentAreaFilled(false);
+        btnBajEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBajEmp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBajEmp.setIconTextGap(-3);
+        btnBajEmp.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBajEmp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnBajEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBajEmpActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBajEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 210, 140));
 
-        btnAltaEmp1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btnAltaEmp1.setBackground(new java.awt.Color(255, 255, 255));
+        btnAltaEmp1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnAltaEmp1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAltaEmp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono_Usr.png"))); // NOI18N
         btnAltaEmp1.setText("Alta Empleado");
+        btnAltaEmp1.setBorderPainted(false);
+        btnAltaEmp1.setContentAreaFilled(false);
+        btnAltaEmp1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAltaEmp1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAltaEmp1.setIconTextGap(-3);
+        btnAltaEmp1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnAltaEmp1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAltaEmp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAltaEmp1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAltaEmp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 140));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnAltaEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGenCont, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBajEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(btnRegresar)))
-                .addContainerGap(19, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(39, 39, 39))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGenCont, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBajEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAltaEmp1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addComponent(btnRegresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMarron.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,5 +182,6 @@ public class GestionEmpleados extends javax.swing.JFrame {
     private javax.swing.JButton btnGenCont;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
 }

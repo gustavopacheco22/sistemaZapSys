@@ -41,46 +41,56 @@ public class GestionDeSistema extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnGesEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         btnGesEmpleados.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnGesEmpleados.setForeground(new java.awt.Color(0, 0, 0));
         btnGesEmpleados.setText("Gestion de Empleados");
+        btnGesEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGesEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGesEmpleadosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGesEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 228, 71));
+        getContentPane().add(btnGesEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 228, 71));
 
+        btnGesHoras.setBackground(new java.awt.Color(255, 255, 255));
         btnGesHoras.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnGesHoras.setForeground(new java.awt.Color(0, 0, 0));
         btnGesHoras.setText("Gestion de Horas Trabajadas");
+        btnGesHoras.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGesHoras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGesHorasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGesHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 250, 71));
+        getContentPane().add(btnGesHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 250, 70));
 
+        btnGesInformes.setBackground(new java.awt.Color(255, 255, 255));
         btnGesInformes.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnGesInformes.setForeground(new java.awt.Color(0, 0, 0));
         btnGesInformes.setText("Gestion de Informes");
         btnGesInformes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGesInformesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGesInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 228, 68));
+        getContentPane().add(btnGesInformes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 228, 68));
 
+        btnSueldo.setBackground(new java.awt.Color(255, 255, 255));
         btnSueldo.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        btnSueldo.setForeground(new java.awt.Color(0, 0, 0));
         btnSueldo.setText("Liquidacion de Sueldos");
         btnSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSueldoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 250, 68));
+        getContentPane().add(btnSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 250, 68));
 
         jLabel1.setFont(new java.awt.Font("Gadugi", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ZapSys");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/304a38cb-167a-4dac-b2db-9ff975525191_200x200.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         btnRegresar.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         btnRegresar.setText("Atras");
@@ -89,10 +99,10 @@ public class GestionDeSistema extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/TRgo9i.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 430));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMarron.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
