@@ -6,6 +6,7 @@
 package vistaLogin;
 
 import com.placeholder.PlaceHolder;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import modeloLogin.SqlUsuarios;
 import modeloLogin.Hash;
@@ -29,12 +30,12 @@ public class frm_alta extends javax.swing.JFrame {
     }
     
     public void holders(){
-        holder = new PlaceHolder(txtNombre, "Nombre: ");
-        holder = new PlaceHolder(txtApellido, "Apellido: ");
-        holder = new PlaceHolder(txtUsername, "Username: ");
-        holder = new PlaceHolder(txtCorreo, "Correo: ");
-        holder = new PlaceHolder(txtPassword, "Password: ");
-        holder = new PlaceHolder(txtConfirmarPassword, "Confirmar Password: ");
+        holder = new PlaceHolder(txtNombre, Color.ORANGE, Color.ORANGE, "Nombre: ", rootPaneCheckingEnabled, "arial", 12) ;
+        holder = new PlaceHolder(txtApellido, Color.ORANGE, Color.ORANGE, "Apellido: ", rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtUsername, Color.ORANGE, Color.ORANGE, "Username: ", rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtCorreo, Color.ORANGE, Color.ORANGE, "Correo: "  , rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtPassword,  Color.ORANGE, Color.ORANGE, "Password:" , rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtConfirmarPassword, Color.ORANGE, Color.ORANGE, "Confirmar Password: " , rootPaneCheckingEnabled, "arial", 12);
     }
 
     SqlUsuarios metodos = new SqlUsuarios();
