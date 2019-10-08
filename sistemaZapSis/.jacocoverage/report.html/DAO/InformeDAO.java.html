@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>InformeDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;sistemaZapSis&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">DAO</a> &gt; <span class="el_source">InformeDAO.java</span></div><h1>InformeDAO.java</h1><pre class="source lang-java linenums">package DAO;
+
+import Conexion.Conectar;
+import VO.InformeVO;
+import java.sql.*;
+import java.util.ArrayList;
+
+
+/*Metodo listar*/
+<span class="nc" id="L10">public class InformeDAO{</span>
+
+    public ArrayList&lt;InformeVO&gt; Listar_InformeVO(){
+<span class="nc" id="L13">        ArrayList&lt;InformeVO&gt; list = new ArrayList&lt;InformeVO&gt;();</span>
+<span class="nc" id="L14">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L15">        String sql = &quot;SELECT * FROM tabla;&quot;;</span>
+<span class="nc" id="L16">        ResultSet rs = null;</span>
+<span class="nc" id="L17">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L19">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L20">            rs = ps.executeQuery();</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L22">                InformeVO vo = new InformeVO();</span>
+<span class="nc" id="L23">                vo.setNroinforme(rs.getInt(1));</span>
+<span class="nc" id="L24">                vo.setDia(rs.getString(2));</span>
+<span class="nc" id="L25">                vo.setMes(rs.getString(3));</span>
+<span class="nc" id="L26">                vo.setAnio(rs.getString(4));</span>
+<span class="nc" id="L27">                vo.setDescripcion(rs.getString(5));</span>
+<span class="nc" id="L28">                vo.setComentario(rs.getString(6));</span>
+<span class="nc" id="L29">                vo.setDni(rs.getInt(7));</span>
+<span class="nc" id="L30">                list.add(vo);</span>
+<span class="nc" id="L31">            }</span>
+<span class="nc" id="L32">        }catch(SQLException ex){</span>
+<span class="nc" id="L33">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L34">        }catch(Exception ex){</span>
+<span class="nc" id="L35">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L37">            try{</span>
+<span class="nc" id="L38">                ps.close();</span>
+<span class="nc" id="L39">                rs.close();</span>
+<span class="nc" id="L40">                conec.desconectar();</span>
+<span class="nc" id="L41">            }catch(Exception ex){}</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc" id="L43">        return list;</span>
+    }
+
+
+/*Metodo agregar*/
+    public void Agregar_InformeVO(InformeVO vo){
+<span class="nc" id="L49">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L50">        String sql = &quot;INSERT INTO tabla (campo1, campo2) VALUES(?,?);&quot;;</span>
+<span class="nc" id="L51">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L53">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L54">            ps.setInt(1, vo.getNroinforme());</span>
+<span class="nc" id="L55">            ps.setString(2, vo.getDia());</span>
+<span class="nc" id="L56">            ps.setString(3, vo.getMes());</span>
+<span class="nc" id="L57">            ps.setString(4, vo.getAnio());</span>
+<span class="nc" id="L58">            ps.setString(5, vo.getDescripcion());</span>
+<span class="nc" id="L59">            ps.setString(6, vo.getComentario());</span>
+<span class="nc" id="L60">            ps.setInt(7, vo.getDni());</span>
+<span class="nc" id="L61">            ps.executeUpdate();</span>
+<span class="nc" id="L62">        }catch(SQLException ex){</span>
+<span class="nc" id="L63">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L64">        }catch(Exception ex){</span>
+<span class="nc" id="L65">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L67">            try{</span>
+<span class="nc" id="L68">                ps.close();</span>
+<span class="nc" id="L69">                conec.desconectar();</span>
+<span class="nc" id="L70">            }catch(Exception ex){}</span>
+<span class="nc" id="L71">        }</span>
+<span class="nc" id="L72">    }</span>
+
+
+/*Metodo Modificar*/
+    public void Modificar_InformeVO(InformeVO vo){
+<span class="nc" id="L77">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L78">        String sql = &quot;UPDATE tabla SET campo2 = ? WHERE campo1 = ?;&quot;;</span>
+<span class="nc" id="L79">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L81">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L82">            ps.setInt(1, vo.getNroinforme());</span>
+<span class="nc" id="L83">            ps.setString(2, vo.getDia());</span>
+<span class="nc" id="L84">            ps.setString(3, vo.getMes());</span>
+<span class="nc" id="L85">            ps.setString(4, vo.getAnio());</span>
+<span class="nc" id="L86">            ps.setString(5, vo.getDescripcion());</span>
+<span class="nc" id="L87">            ps.setString(6, vo.getComentario());</span>
+<span class="nc" id="L88">            ps.setInt(7, vo.getDni());</span>
+<span class="nc" id="L89">            ps.executeUpdate();</span>
+<span class="nc" id="L90">        }catch(SQLException ex){</span>
+<span class="nc" id="L91">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L92">        }catch(Exception ex){</span>
+<span class="nc" id="L93">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L95">            try{</span>
+<span class="nc" id="L96">                ps.close();</span>
+<span class="nc" id="L97">                conec.desconectar();</span>
+<span class="nc" id="L98">            }catch(Exception ex){}</span>
+<span class="nc" id="L99">        }</span>
+<span class="nc" id="L100">    }</span>
+
+
+/*Metodo Eliminar*/
+    public void Eliminar_InformeVO(InformeVO vo){
+<span class="nc" id="L105">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L106">        String sql = &quot;DELETE FROM tabla WHERE campo1 = ?;&quot;;</span>
+<span class="nc" id="L107">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L109">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L110">            ps.setInt(1, vo.getNroinforme());</span>
+<span class="nc" id="L111">            ps.setString(2, vo.getDia());</span>
+<span class="nc" id="L112">            ps.setString(3, vo.getMes());</span>
+<span class="nc" id="L113">            ps.setString(4, vo.getAnio());</span>
+<span class="nc" id="L114">            ps.setString(5, vo.getDescripcion());</span>
+<span class="nc" id="L115">            ps.setString(6, vo.getComentario());</span>
+<span class="nc" id="L116">            ps.setInt(7, vo.getDni());</span>
+<span class="nc" id="L117">            ps.executeUpdate();</span>
+<span class="nc" id="L118">        }catch(SQLException ex){</span>
+<span class="nc" id="L119">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L120">        }catch(Exception ex){</span>
+<span class="nc" id="L121">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L123">            try{</span>
+<span class="nc" id="L124">                ps.close();</span>
+<span class="nc" id="L125">                conec.desconectar();</span>
+<span class="nc" id="L126">            }catch(Exception ex){}</span>
+<span class="nc" id="L127">        }</span>
+<span class="nc" id="L128">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

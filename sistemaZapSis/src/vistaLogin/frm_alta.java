@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import modeloLogin.SqlUsuarios;
 import modeloLogin.Hash;
 import modeloLogin.Usuarios;
+import javaapp.validaciones;
 
 /**
  *
@@ -170,6 +171,11 @@ public class frm_alta extends javax.swing.JFrame {
         String pass = new String(txtPassword.getPassword());
         String passC = new String(txtConfirmarPassword.getPassword());
 
+        if (validaciones.isEmpty(txtNombre.getText())){
+            
+            
+        }
+        
         if (txtUsername.getText().equals("") || pass.equals("") || passC.equals("") || txtNombre.getText().equals("") || txtCorreo.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los datos");
         } else {

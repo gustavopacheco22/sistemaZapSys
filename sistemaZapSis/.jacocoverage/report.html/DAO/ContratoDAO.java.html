@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ContratoDAO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;sistemaZapSis&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">DAO</a> &gt; <span class="el_source">ContratoDAO.java</span></div><h1>ContratoDAO.java</h1><pre class="source lang-java linenums">package DAO;
+
+import Conexion.Conectar;
+import VO.ContratoVO;
+import java.sql.*;
+import java.util.ArrayList;
+
+
+/*Metodo listar*/
+<span class="nc" id="L10">public class ContratoDAO{</span>
+
+    public ArrayList&lt;ContratoVO&gt; Listar_ContratoVO(){
+<span class="nc" id="L13">        ArrayList&lt;ContratoVO&gt; list = new ArrayList&lt;ContratoVO&gt;();</span>
+<span class="nc" id="L14">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L15">        String sql = &quot;SELECT * FROM contrato ;&quot;;</span>
+<span class="nc" id="L16">        ResultSet rs = null;</span>
+<span class="nc" id="L17">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L19">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L20">            rs = ps.executeQuery();</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            while(rs.next()){</span>
+<span class="nc" id="L22">                ContratoVO vo = new ContratoVO();</span>
+<span class="nc" id="L23">                vo.setIdcontrato(rs.getInt(1));</span>
+<span class="nc" id="L24">                vo.setFechafirma(rs.getDate(2));</span>
+<span class="nc" id="L25">                vo.setFechavencimiento(rs.getDate(3));</span>
+<span class="nc" id="L26">                vo.setEstado(rs.getInt(4));</span>
+<span class="nc" id="L27">                vo.setDni(rs.getInt(5));</span>
+<span class="nc" id="L28">                vo.setIdcategoria(rs.getInt(6));</span>
+<span class="nc" id="L29">                list.add(vo);</span>
+<span class="nc" id="L30">            }</span>
+<span class="nc" id="L31">        }catch(SQLException ex){</span>
+<span class="nc" id="L32">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L33">        }catch(Exception ex){</span>
+<span class="nc" id="L34">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L36">            try{</span>
+<span class="nc" id="L37">                ps.close();</span>
+<span class="nc" id="L38">                rs.close();</span>
+<span class="nc" id="L39">                conec.desconectar();</span>
+<span class="nc" id="L40">            }catch(Exception ex){}</span>
+<span class="nc" id="L41">        }</span>
+<span class="nc" id="L42">        return list;</span>
+    }
+
+
+/*Metodo agregar*/
+    public int Agregar_ContratoVO(ContratoVO vo){
+<span class="nc" id="L48">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L49">        String sql = &quot;INSERT INTO contrato (fechaFirma, fechaVencimiento, DNI, idCategoria) VALUES(?,?, ?, ?);&quot;;</span>
+<span class="nc" id="L50">        PreparedStatement ps = null;</span>
+<span class="nc" id="L51">        int resultado = 0;</span>
+        try{
+<span class="nc" id="L53">            ps = conec.getConnection().prepareStatement(sql);</span>
+            //ps.setInt(1, vo.getIdcontrato());
+<span class="nc" id="L55">            ps.setDate(1, vo.getFechafirma());</span>
+<span class="nc" id="L56">            ps.setDate(2, vo.getFechavencimiento());</span>
+            //ps.setInt(3, vo.getEstado());
+<span class="nc" id="L58">            ps.setInt(3, vo.getDni());</span>
+<span class="nc" id="L59">            ps.setInt(4, vo.getIdcategoria());</span>
+<span class="nc" id="L60">            resultado = ps.executeUpdate();</span>
+            
+<span class="nc" id="L62">        }catch(SQLException ex){</span>
+<span class="nc" id="L63">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L64">        }catch(Exception ex){</span>
+<span class="nc" id="L65">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L67">            try{</span>
+<span class="nc" id="L68">                ps.close();</span>
+<span class="nc" id="L69">                conec.desconectar();</span>
+<span class="nc" id="L70">            }catch(Exception ex){}</span>
+<span class="nc" id="L71">            return resultado;</span>
+        }
+    }
+
+
+/*Metodo Modificar*/
+    public void Modificar_ContratoVO(ContratoVO vo){
+<span class="nc" id="L78">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L79">        String sql = &quot;UPDATE contrato SET estado = ? WHERE DNI = ?;&quot;;</span>
+<span class="nc" id="L80">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L82">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L83">            ps.setInt(1, vo.getIdcontrato());</span>
+<span class="nc" id="L84">            ps.setDate(2, vo.getFechafirma());</span>
+<span class="nc" id="L85">            ps.setDate(3, vo.getFechavencimiento());</span>
+<span class="nc" id="L86">            ps.setInt(4, vo.getEstado());</span>
+<span class="nc" id="L87">            ps.setInt(5, vo.getDni());</span>
+<span class="nc" id="L88">            ps.setInt(6, vo.getIdcategoria());</span>
+<span class="nc" id="L89">            ps.executeUpdate();</span>
+<span class="nc" id="L90">        }catch(SQLException ex){</span>
+<span class="nc" id="L91">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L92">        }catch(Exception ex){</span>
+<span class="nc" id="L93">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L95">            try{</span>
+<span class="nc" id="L96">                ps.close();</span>
+<span class="nc" id="L97">                conec.desconectar();</span>
+<span class="nc" id="L98">            }catch(Exception ex){}</span>
+<span class="nc" id="L99">        }</span>
+<span class="nc" id="L100">    }</span>
+
+
+/*Metodo Eliminar*/
+    public void Eliminar_ContratoVO(ContratoVO vo){
+<span class="nc" id="L105">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L106">        String sql = &quot;DELETE FROM tabla WHERE campo1 = ?;&quot;;</span>
+<span class="nc" id="L107">        PreparedStatement ps = null;</span>
+        try{
+<span class="nc" id="L109">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L110">            ps.setInt(1, vo.getIdcontrato());</span>
+<span class="nc" id="L111">            ps.setDate(2, vo.getFechafirma());</span>
+<span class="nc" id="L112">            ps.setDate(3, vo.getFechavencimiento());</span>
+<span class="nc" id="L113">            ps.setInt(4, vo.getEstado());</span>
+<span class="nc" id="L114">            ps.setInt(5, vo.getDni());</span>
+<span class="nc" id="L115">            ps.setInt(6, vo.getIdcategoria());</span>
+<span class="nc" id="L116">            ps.executeUpdate();</span>
+<span class="nc" id="L117">        }catch(SQLException ex){</span>
+<span class="nc" id="L118">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L119">        }catch(Exception ex){</span>
+<span class="nc" id="L120">            System.out.println(ex.getMessage());</span>
+        }finally{
+<span class="nc" id="L122">            try{</span>
+<span class="nc" id="L123">                ps.close();</span>
+<span class="nc" id="L124">                conec.desconectar();</span>
+<span class="nc" id="L125">            }catch(Exception ex){}</span>
+<span class="nc" id="L126">        }</span>
+<span class="nc" id="L127">    }   </span>
+    
+    public ContratoVO BuscarContratoXDni(int dni) {
+<span class="nc" id="L130">        Conectar conec = new Conectar();</span>
+<span class="nc" id="L131">        String sql = &quot;SELECT * FROM contrato where DNI=? AND estado = 1;&quot;;</span>
+<span class="nc" id="L132">        ResultSet rs = null;</span>
+<span class="nc" id="L133">        PreparedStatement ps = null;</span>
+<span class="nc" id="L134">        ContratoVO vo = null;</span>
+        try {
+<span class="nc" id="L136">            ps = conec.getConnection().prepareStatement(sql);</span>
+<span class="nc" id="L137">            ps.setInt(1, dni);</span>
+<span class="nc" id="L138">            rs = ps.executeQuery();</span>
+            
+//                int idcontrato;
+//                Date fechafirma;
+//                Date fechavencimiento;
+//                int estado;
+//                int dni;
+//                int idcategoria;
+
+<span class="nc bnc" id="L147" title="All 2 branches missed.">            if (rs.first()) {</span>
+<span class="nc" id="L148">                vo = new ContratoVO();</span>
+<span class="nc" id="L149">                vo.setIdcontrato(rs.getInt(1));</span>
+<span class="nc" id="L150">                vo.setFechafirma(rs.getDate(2));</span>
+<span class="nc" id="L151">                vo.setFechavencimiento(rs.getDate(3));</span>
+<span class="nc" id="L152">                vo.setEstado(rs.getInt(4));</span>
+<span class="nc" id="L153">                vo.setDni(rs.getInt(5));</span>
+<span class="nc" id="L154">                vo.setIdcategoria(rs.getInt(6));</span>
+
+            }
+<span class="nc" id="L157">        } catch (SQLException ex) {</span>
+<span class="nc" id="L158">            System.out.println(ex.getMessage());</span>
+<span class="nc" id="L159">        } catch (Exception ex) {</span>
+<span class="nc" id="L160">            System.out.println(ex.getMessage());</span>
+        } finally {
+<span class="nc" id="L162">            try {</span>
+<span class="nc" id="L163">                ps.close();</span>
+<span class="nc" id="L164">                rs.close();</span>
+<span class="nc" id="L165">                conec.desconectar();</span>
+<span class="nc" id="L166">            } catch (Exception ex) {</span>
+<span class="nc" id="L167">            }</span>
+<span class="nc" id="L168">        }</span>
+<span class="nc" id="L169">        return vo;</span>
+    }
+    
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

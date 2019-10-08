@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Tabla_EmpeladoVO.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;sistemaZapSis&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Tabla</a> &gt; <span class="el_source">Tabla_EmpeladoVO.java</span></div><h1>Tabla_EmpeladoVO.java</h1><pre class="source lang-java linenums">package Tabla;
+
+import DAO.EmpeladoDAO;
+import VO.EmpeladoVO;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+
+
+<span class="nc" id="L10">public class Tabla_EmpeladoVO{</span>
+
+<span class="nc" id="L12">   EmpeladoDAO dao = null;</span>
+
+
+    public void visualizar_EmpeladoVO(JTable tabla){
+<span class="nc" id="L16">        DefaultTableModel dt = new DefaultTableModel();</span>
+<span class="nc" id="L17">        dt.addColumn(&quot;dni&quot;);</span>
+<span class="nc" id="L18">        dt.addColumn(&quot;nombre&quot;);</span>
+<span class="nc" id="L19">        dt.addColumn(&quot;apellido&quot;);</span>
+<span class="nc" id="L20">        dt.addColumn(&quot;telefono&quot;);</span>
+<span class="nc" id="L21">        dt.addColumn(&quot;domicilio&quot;);</span>
+<span class="nc" id="L22">        dt.addColumn(&quot;correoelectronico&quot;);</span>
+<span class="nc" id="L23">        dt.addColumn(&quot;estado&quot;);</span>
+<span class="nc" id="L24">        dt.addColumn(&quot;nombresindicato&quot;);</span>
+
+<span class="nc" id="L26">        dao = new EmpeladoDAO();</span>
+<span class="nc" id="L27">        EmpeladoVO vo = new EmpeladoVO();</span>
+<span class="nc" id="L28">        ArrayList&lt;EmpeladoVO&gt; list = dao.Listar_EmpeladoVO();</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if(list.size() &gt; 0){</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            for(int i=0; i&lt;list.size(); i++){</span>
+<span class="nc" id="L32">                Object fila[] = new Object[8];</span>
+<span class="nc" id="L33">                vo = list.get(i);</span>
+<span class="nc" id="L34">                fila[0] = vo.getDni();</span>
+<span class="nc" id="L35">                fila[1] = vo.getNombre();</span>
+<span class="nc" id="L36">                fila[2] = vo.getApellido();</span>
+<span class="nc" id="L37">                fila[3] = vo.getTelefono();</span>
+<span class="nc" id="L38">                fila[4] = vo.getDomicilio();</span>
+<span class="nc" id="L39">                fila[5] = vo.getCorreoelectronico();</span>
+<span class="nc" id="L40">                fila[6] = vo.getEstado();</span>
+<span class="nc" id="L41">                fila[7] = vo.getNombresindicato();</span>
+<span class="nc" id="L42">                dt.addRow(fila);</span>
+            }
+<span class="nc" id="L44">            tabla.setModel(dt);</span>
+        }
+<span class="nc" id="L46">    }</span>
+    
+      public void mostrarEmpleado(JTable tabla, int DNi){
+<span class="nc" id="L49">        DefaultTableModel dt = new DefaultTableModel();</span>
+        
+<span class="nc" id="L51">        dt.addColumn(&quot;nombre&quot;);</span>
+<span class="nc" id="L52">        dt.addColumn(&quot;apellido&quot;);</span>
+<span class="nc" id="L53">        dt.addColumn(&quot;nombresindicato&quot;);</span>
+
+<span class="nc" id="L55">        dao = new EmpeladoDAO();</span>
+<span class="nc" id="L56">        EmpeladoVO vo = new EmpeladoVO();</span>
+        //EmpeladoVO list = dao.Buscar_EmpeladoVO(DNi);
+<span class="nc" id="L58">        vo = dao.Buscar_EmpeladoVO(DNi);</span>
+<span class="nc" id="L59">          System.out.println(vo.toString());</span>
+        
+        
+<span class="nc" id="L62">        Object fila[] = new Object[3];</span>
+               
+                
+<span class="nc" id="L65">                fila[0] = vo.getNombre();</span>
+<span class="nc" id="L66">                fila[1] = vo.getApellido();</span>
+<span class="nc" id="L67">                fila[2] = vo.getNombresindicato();</span>
+<span class="nc" id="L68">                dt.addRow(fila);</span>
+            
+<span class="nc" id="L70">            tabla.setModel(dt);</span>
+
+//        if(list.size() &gt; 0){
+//            for(int i=0; i&lt;list.size(); i++){
+//                Object fila[] = new Object[8];
+//                vo = list.get(i);
+//                fila[0] = vo.getDni();
+//                fila[1] = vo.getNombre();
+//                fila[2] = vo.getApellido();
+//                fila[3] = vo.getTelefono();
+//                fila[4] = vo.getDomicilio();
+//                fila[5] = vo.getCorreoelectronico();
+//                fila[6] = vo.getEstado();
+//                fila[7] = vo.getNombresindicato();
+//                dt.addRow(fila);
+//            }
+//            tabla.setModel(dt);
+//        }
+<span class="nc" id="L88">    }</span>
+      
+        public void mostrarEmpleadoXEstado(JTable tabla, int DNi){
+<span class="nc" id="L91">        DefaultTableModel dt = new DefaultTableModel();</span>
+        
+        
+<span class="nc" id="L94">        dt.addColumn(&quot;nombre&quot;);</span>
+<span class="nc" id="L95">        dt.addColumn(&quot;apellido&quot;);</span>
+<span class="nc" id="L96">        dt.addColumn(&quot;filial&quot;);</span>
+
+<span class="nc" id="L98">        dao = new EmpeladoDAO();</span>
+<span class="nc" id="L99">        EmpeladoVO vo = new EmpeladoVO();</span>
+        //EmpeladoVO list = dao.Buscar_EmpeladoVO(DNi);
+<span class="nc" id="L101">        vo = dao.Buscar_Empleado_Activo(DNi);</span>
+<span class="nc" id="L102">        System.out.println(vo.toString());</span>
+       
+        
+<span class="nc" id="L105">        Object fila[] = new Object[3];</span>
+
+<span class="nc" id="L107">                fila[0] = vo.getNombre();</span>
+<span class="nc" id="L108">                fila[1] = vo.getApellido();</span>
+<span class="nc" id="L109">                fila[2] = vo.getNombresindicato();</span>
+<span class="nc" id="L110">                dt.addRow(fila);</span>
+            
+<span class="nc" id="L112">            tabla.setModel(dt);</span>
+    //return vo;
+<span class="nc" id="L114">        }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
