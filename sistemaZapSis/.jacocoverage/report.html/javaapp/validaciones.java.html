@@ -33,11 +33,11 @@ import java.util.regex.Pattern;
     }
 
     public static boolean isEmail(String n) {
-<span class="nc" id="L36">       Pattern pattern = Pattern.compile(&quot;^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@&quot; + &quot;[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$&quot;);</span>
+<span class="fc" id="L36">       Pattern pattern = Pattern.compile(&quot;^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@&quot; + &quot;[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$&quot;);</span>
 
-<span class="nc" id="L38">        Matcher mather = pattern.matcher(n);</span>
+<span class="fc" id="L38">        Matcher mather = pattern.matcher(n);</span>
 
-<span class="nc" id="L40">        return mather.find();</span>
+<span class="fc" id="L40">        return mather.find();</span>
     }
 
     public static boolean isEmpty(String n) {

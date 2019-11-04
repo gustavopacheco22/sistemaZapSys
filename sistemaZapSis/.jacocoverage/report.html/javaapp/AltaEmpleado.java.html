@@ -49,195 +49,156 @@ public class AltaEmpleado extends javax.swing.JFrame {
 <span class="nc" id="L49">        jLabel6 = new javax.swing.JLabel();</span>
 <span class="nc" id="L50">        jLabel7 = new javax.swing.JLabel();</span>
 <span class="nc" id="L51">        jLabel8 = new javax.swing.JLabel();</span>
+<span class="nc" id="L52">        jLabel9 = new javax.swing.JLabel();</span>
+<span class="nc" id="L53">        jSeparator1 = new javax.swing.JSeparator();</span>
+<span class="nc" id="L54">        LabelFondo = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L53">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L54">        setFont(new java.awt.Font(&quot;AR CHRISTY&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L56">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L57">        setFont(new java.awt.Font(&quot;AR CHRISTY&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L58">        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
 
-<span class="nc" id="L56">        jLabel1.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L57">        jLabel1.setText(&quot;Alta de Empleados&quot;);</span>
+<span class="nc" id="L60">        jLabel1.setFont(new java.awt.Font(&quot;Gadugi&quot;, 1, 24)); // NOI18N</span>
+<span class="nc" id="L61">        jLabel1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L62">        jLabel1.setText(&quot;Alta de Empleados&quot;);</span>
+<span class="nc" id="L63">        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));</span>
 
-<span class="nc" id="L59">        btnAgregar.setText(&quot;Agregar&quot;);</span>
-<span class="nc" id="L60">        btnAgregar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L65">        btnAgregar.setText(&quot;Agregar&quot;);</span>
+<span class="nc" id="L66">        btnAgregar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L62">                btnAgregarActionPerformed(evt);</span>
-<span class="nc" id="L63">            }</span>
+<span class="nc" id="L68">                btnAgregarActionPerformed(evt);</span>
+<span class="nc" id="L69">            }</span>
         });
+<span class="nc" id="L71">        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, -1, -1));</span>
 
-<span class="nc" id="L66">        btnRegresar.setText(&quot;Regresar&quot;);</span>
-<span class="nc" id="L67">        btnRegresar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L73">        btnRegresar.setText(&quot;Regresar&quot;);</span>
+<span class="nc" id="L74">        btnRegresar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L69">                btnRegresarActionPerformed(evt);</span>
-<span class="nc" id="L70">            }</span>
+<span class="nc" id="L76">                btnRegresarActionPerformed(evt);</span>
+<span class="nc" id="L77">            }</span>
         });
+<span class="nc" id="L79">        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));</span>
 
-<span class="nc" id="L73">        txtDni.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L81">        txtDni.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L75">                txtDniActionPerformed(evt);</span>
-<span class="nc" id="L76">            }</span>
+<span class="nc" id="L83">                txtDniActionPerformed(evt);</span>
+<span class="nc" id="L84">            }</span>
         });
+<span class="nc" id="L86">        getContentPane().add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 431, -1));</span>
 
-<span class="nc" id="L79">        txtNombre.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L88">        txtNombre.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L81">                txtNombreActionPerformed(evt);</span>
-<span class="nc" id="L82">            }</span>
+<span class="nc" id="L90">                txtNombreActionPerformed(evt);</span>
+<span class="nc" id="L91">            }</span>
         });
+<span class="nc" id="L93">        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 431, -1));</span>
+<span class="nc" id="L94">        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 431, -1));</span>
+<span class="nc" id="L95">        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 431, -1));</span>
+<span class="nc" id="L96">        getContentPane().add(txtDocimilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 431, -1));</span>
+<span class="nc" id="L97">        getContentPane().add(txtCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 431, -1));</span>
 
-<span class="nc" id="L85">        combSindicato.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L86">        combSindicato.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Iosep&quot;, &quot;Smaunse&quot;, &quot;Sancor&quot; }));</span>
-<span class="nc" id="L87">        combSindicato.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L99">        combSindicato.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L100">        combSindicato.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Iosep&quot;, &quot;Smaunse&quot;, &quot;Sancor&quot; }));</span>
+<span class="nc" id="L101">        combSindicato.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L89">                combSindicatoActionPerformed(evt);</span>
-<span class="nc" id="L90">            }</span>
+<span class="nc" id="L103">                combSindicatoActionPerformed(evt);</span>
+<span class="nc" id="L104">            }</span>
         });
+<span class="nc" id="L106">        getContentPane().add(combSindicato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 199, -1));</span>
 
-<span class="nc" id="L93">        jLabel2.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L94">        jLabel2.setText(&quot;DNI&quot;);</span>
+<span class="nc" id="L108">        jLabel2.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L109">        jLabel2.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L110">        jLabel2.setText(&quot;DNI&quot;);</span>
+<span class="nc" id="L111">        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));</span>
 
-<span class="nc" id="L96">        jLabel3.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L97">        jLabel3.setText(&quot;Nombre&quot;);</span>
+<span class="nc" id="L113">        jLabel3.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L114">        jLabel3.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L115">        jLabel3.setText(&quot;Nombre&quot;);</span>
+<span class="nc" id="L116">        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));</span>
 
-<span class="nc" id="L99">        jLabel4.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L100">        jLabel4.setText(&quot;Apeliido&quot;);</span>
+<span class="nc" id="L118">        jLabel4.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L119">        jLabel4.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L120">        jLabel4.setText(&quot;Apeliido&quot;);</span>
+<span class="nc" id="L121">        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));</span>
 
-<span class="nc" id="L102">        jLabel5.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L103">        jLabel5.setText(&quot;Telefono&quot;);</span>
+<span class="nc" id="L123">        jLabel5.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L124">        jLabel5.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L125">        jLabel5.setText(&quot;Telefono&quot;);</span>
+<span class="nc" id="L126">        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));</span>
 
-<span class="nc" id="L105">        jLabel6.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L106">        jLabel6.setText(&quot;Domicilio&quot;);</span>
+<span class="nc" id="L128">        jLabel6.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L129">        jLabel6.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L130">        jLabel6.setText(&quot;Domicilio&quot;);</span>
+<span class="nc" id="L131">        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));</span>
 
-<span class="nc" id="L108">        jLabel7.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L109">        jLabel7.setText(&quot;Correo Electronico&quot;);</span>
+<span class="nc" id="L133">        jLabel7.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L134">        jLabel7.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L135">        jLabel7.setText(&quot;Correo Electronico&quot;);</span>
+<span class="nc" id="L136">        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));</span>
 
-<span class="nc" id="L111">        jLabel8.setFont(new java.awt.Font(&quot;Dialog&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L112">        jLabel8.setText(&quot;Sindicato&quot;);</span>
+<span class="nc" id="L138">        jLabel8.setFont(new java.awt.Font(&quot;Gadugi&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L139">        jLabel8.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L140">        jLabel8.setText(&quot;Sindicato&quot;);</span>
+<span class="nc" id="L141">        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));</span>
 
-<span class="nc" id="L114">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L115">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L116">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L117">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L118">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L119">                .addGap(218, 218, 218)</span>
-<span class="nc" id="L120">                .addComponent(jLabel1)</span>
-<span class="nc" id="L121">                .addGap(0, 0, Short.MAX_VALUE))</span>
-<span class="nc" id="L122">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L123">                .addContainerGap()</span>
-<span class="nc" id="L124">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L125">                    .addComponent(jLabel7)</span>
-<span class="nc" id="L126">                    .addComponent(jLabel5)</span>
-<span class="nc" id="L127">                    .addComponent(jLabel6)</span>
-<span class="nc" id="L128">                    .addComponent(jLabel4)</span>
-<span class="nc" id="L129">                    .addComponent(jLabel3)</span>
-<span class="nc" id="L130">                    .addComponent(jLabel2))</span>
-<span class="nc" id="L131">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L132">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L133">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L134">                        .addComponent(btnRegresar)</span>
-<span class="nc" id="L135">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L136">                        .addComponent(btnAgregar))</span>
-<span class="nc" id="L137">                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L138">                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L139">                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L140">                    .addComponent(txtDocimilio, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L141">                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L142">                    .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L143">                .addContainerGap(75, Short.MAX_VALUE))</span>
-<span class="nc" id="L144">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L145">                .addContainerGap()</span>
-<span class="nc" id="L146">                .addComponent(jLabel8)</span>
-<span class="nc" id="L147">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 78, Short.MAX_VALUE)</span>
-<span class="nc" id="L148">                .addComponent(combSindicato, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L149">                .addGap(301, 301, 301))</span>
-        );
-<span class="nc" id="L151">        layout.setVerticalGroup(</span>
-<span class="nc" id="L152">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L153">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L154">                .addContainerGap(41, Short.MAX_VALUE)</span>
-<span class="nc" id="L155">                .addComponent(jLabel1)</span>
-<span class="nc" id="L156">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L157">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L158">                    .addComponent(jLabel2)</span>
-<span class="nc" id="L159">                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L160">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L161">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L162">                    .addComponent(jLabel3)</span>
-<span class="nc" id="L163">                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L164">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L165">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L166">                    .addComponent(jLabel4)</span>
-<span class="nc" id="L167">                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L168">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L169">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L170">                    .addComponent(jLabel5)</span>
-<span class="nc" id="L171">                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L172">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L173">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L174">                    .addComponent(jLabel6)</span>
-<span class="nc" id="L175">                    .addComponent(txtDocimilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L176">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L177">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L178">                    .addComponent(jLabel7)</span>
-<span class="nc" id="L179">                    .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L180">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L181">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L182">                    .addComponent(combSindicato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L183">                    .addComponent(jLabel8))</span>
-<span class="nc" id="L184">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L185">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L186">                    .addComponent(btnRegresar)</span>
-<span class="nc" id="L187">                    .addComponent(btnAgregar))</span>
-<span class="nc" id="L188">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
-        );
+<span class="nc" id="L143">        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/logo_75x75.png&quot;))); // NOI18N</span>
+<span class="nc" id="L144">        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));</span>
 
-<span class="nc" id="L191">        pack();</span>
-<span class="nc" id="L192">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L146">        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L147">        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 620, 10));</span>
+
+<span class="nc" id="L149">        LabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/FondoMarron.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L150">        getContentPane().add(LabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 460));</span>
+
+<span class="nc" id="L152">        pack();</span>
+<span class="nc" id="L153">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
       // TODO add your handling code here;
       ///  JOptionPane.showMessageDialog(this,jComboBox1.getSelectedItem().toString());
       //JOptionPane.showConfirmDialog(this, evt)
-<span class="nc" id="L198">      int  i = 0;</span>
+<span class="nc" id="L159">      int  i = 0;</span>
         try {
-<span class="nc" id="L200">            VO.EmpeladoVO empleados= new VO.EmpeladoVO();</span>
-<span class="nc" id="L201">            DAO.EmpeladoDAO dempleado= new DAO.EmpeladoDAO();</span>
+<span class="nc" id="L161">            VO.EmpeladoVO empleados= new VO.EmpeladoVO();</span>
+<span class="nc" id="L162">            DAO.EmpeladoDAO dempleado= new DAO.EmpeladoDAO();</span>
             
-<span class="nc" id="L203">            empleados.setDni(Integer.parseInt(txtDni.getText()));</span>
-<span class="nc" id="L204">            empleados.setNombre(txtNombre.getText());</span>
-<span class="nc" id="L205">            empleados.setApellido(txtApellido.getText());</span>
-<span class="nc" id="L206">            empleados.setTelefono(Integer.parseInt(txtTelefono.getText()));</span>
-<span class="nc" id="L207">            empleados.setDomicilio(txtDocimilio.getText());</span>
-<span class="nc" id="L208">            empleados.setCorreoelectronico(txtCorreoElectronico.getText());</span>
-<span class="nc" id="L209">            empleados.setNombresindicato(combSindicato.getSelectedItem().toString());</span>
+<span class="nc" id="L164">            empleados.setDni(Integer.parseInt(txtDni.getText()));</span>
+<span class="nc" id="L165">            empleados.setNombre(txtNombre.getText());</span>
+<span class="nc" id="L166">            empleados.setApellido(txtApellido.getText());</span>
+<span class="nc" id="L167">            empleados.setTelefono(Integer.parseInt(txtTelefono.getText()));</span>
+<span class="nc" id="L168">            empleados.setDomicilio(txtDocimilio.getText());</span>
+<span class="nc" id="L169">            empleados.setCorreoelectronico(txtCorreoElectronico.getText());</span>
+<span class="nc" id="L170">            empleados.setNombresindicato(combSindicato.getSelectedItem().toString());</span>
             
-<span class="nc" id="L211">            i = dempleado.Agregar_EmpeladoVO(empleados);</span>
+<span class="nc" id="L172">            i = dempleado.Agregar_EmpeladoVO(empleados);</span>
             
-<span class="nc bnc" id="L213" title="All 2 branches missed.">            if (i &gt; 0) {</span>
-<span class="nc" id="L214">                JOptionPane.showMessageDialog(this, &quot;Datos Agregados Correctamente&quot;);</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            if (i &gt; 0) {</span>
+<span class="nc" id="L175">                JOptionPane.showMessageDialog(this, &quot;Datos Agregados Correctamente&quot;);</span>
             } else {
-<span class="nc" id="L216">                JOptionPane.showMessageDialog(this, &quot;No se Pudo agregar los datos del empleado&quot;);</span>
+<span class="nc" id="L177">                JOptionPane.showMessageDialog(this, &quot;No se Pudo agregar los datos del empleado&quot;);</span>
             }
             
-<span class="nc" id="L219">        } catch (Exception e) {</span>
-<span class="nc" id="L220">        }</span>
-<span class="nc" id="L221">    }//GEN-LAST:event_btnAgregarActionPerformed</span>
+<span class="nc" id="L180">        } catch (Exception e) {</span>
+<span class="nc" id="L181">        }</span>
+<span class="nc" id="L182">    }//GEN-LAST:event_btnAgregarActionPerformed</span>
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L225">    }//GEN-LAST:event_txtNombreActionPerformed</span>
+<span class="nc" id="L186">    }//GEN-LAST:event_txtNombreActionPerformed</span>
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L229">        GestionEmpleados ventana=new GestionEmpleados();</span>
-<span class="nc" id="L230">        ventana.setVisible(true);</span>
-<span class="nc" id="L231">        this.dispose();</span>
-<span class="nc" id="L232">    }//GEN-LAST:event_btnRegresarActionPerformed</span>
+<span class="nc" id="L190">        GestionEmpleados ventana=new GestionEmpleados();</span>
+<span class="nc" id="L191">        ventana.setVisible(true);</span>
+<span class="nc" id="L192">        this.dispose();</span>
+<span class="nc" id="L193">    }//GEN-LAST:event_btnRegresarActionPerformed</span>
 
     private void combSindicatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combSindicatoActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L236">    }//GEN-LAST:event_combSindicatoActionPerformed</span>
+<span class="nc" id="L197">    }//GEN-LAST:event_combSindicatoActionPerformed</span>
 
     private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L240">    }//GEN-LAST:event_txtDniActionPerformed</span>
+<span class="nc" id="L201">    }//GEN-LAST:event_txtDniActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -249,32 +210,33 @@ public class AltaEmpleado extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L252" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L253" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L254">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L255">                    break;</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L215">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L216">                    break;</span>
                 }
             }
-<span class="nc" id="L258">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L259">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L260">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L261">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L262">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L263">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L264">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L265">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L266">        }</span>
+<span class="nc" id="L219">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L220">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L221">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L222">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L223">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L224">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L225">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L226">            java.util.logging.Logger.getLogger(AltaEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L227">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L270">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L231">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L272">                new AltaEmpleado().setVisible(true);</span>
-<span class="nc" id="L273">            }</span>
+<span class="nc" id="L233">                new AltaEmpleado().setVisible(true);</span>
+<span class="nc" id="L234">            }</span>
         });
-<span class="nc" id="L275">    }</span>
+<span class="nc" id="L236">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelFondo;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox&lt;String&gt; combSindicato;
@@ -286,6 +248,8 @@ public class AltaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtDni;

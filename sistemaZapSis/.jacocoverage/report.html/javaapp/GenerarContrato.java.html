@@ -60,13 +60,19 @@ public class GenerarContrato extends javax.swing.JFrame {
 <span class="nc" id="L60">        labVencimiento = new javax.swing.JLabel();</span>
 <span class="nc" id="L61">        btnGenerar = new javax.swing.JButton();</span>
 <span class="nc" id="L62">        btnAtras = new javax.swing.JButton();</span>
+<span class="nc" id="L63">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L64">        jSeparator1 = new javax.swing.JSeparator();</span>
+<span class="nc" id="L65">        jLabelFondo = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L64">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L67">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L68">        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
 
-<span class="nc" id="L66">        jLabel1.setFont(new java.awt.Font(&quot;Dialog&quot;, 1, 48)); // NOI18N</span>
-<span class="nc" id="L67">        jLabel1.setText(&quot;Generar Contrato&quot;);</span>
+<span class="nc" id="L70">        jLabel1.setFont(new java.awt.Font(&quot;Gadugi&quot;, 1, 24)); // NOI18N</span>
+<span class="nc" id="L71">        jLabel1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L72">        jLabel1.setText(&quot;Generar Contrato&quot;);</span>
+<span class="nc" id="L73">        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));</span>
 
-<span class="nc" id="L69">        tablaEmpleado.setModel(new javax.swing.table.DefaultTableModel(</span>
+<span class="nc" id="L75">        tablaEmpleado.setModel(new javax.swing.table.DefaultTableModel(</span>
             new Object [][] {
                 {null, null, null},
                 {null, null, null}
@@ -74,165 +80,123 @@ public class GenerarContrato extends javax.swing.JFrame {
             new String [] {
                 &quot;Nombre&quot;, &quot;Apellido&quot;, &quot;Nombre de Sindicato&quot;
             }
-<span class="nc" id="L77">        ) {</span>
-<span class="nc" id="L78">            Class[] types = new Class [] {</span>
+<span class="nc" id="L83">        ) {</span>
+<span class="nc" id="L84">            Class[] types = new Class [] {</span>
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
-<span class="nc" id="L83">                return types [columnIndex];</span>
+<span class="nc" id="L89">                return types [columnIndex];</span>
             }
         });
-<span class="nc" id="L86">        jScrollPane1.setViewportView(tablaEmpleado);</span>
+<span class="nc" id="L92">        jScrollPane1.setViewportView(tablaEmpleado);</span>
 
-<span class="nc" id="L88">        jLabel2.setText(&quot;DNI&quot;);</span>
+<span class="nc" id="L94">        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 461, 54));</span>
 
-<span class="nc" id="L90">        combxCategoria.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
-<span class="nc" id="L91">        combxCategoria.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L96">        jLabel2.setFont(new java.awt.Font(&quot;Gadugi&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L97">        jLabel2.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L98">        jLabel2.setText(&quot;DNI&quot;);</span>
+<span class="nc" id="L99">        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));</span>
+<span class="nc" id="L100">        getContentPane().add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 419, -1));</span>
+
+<span class="nc" id="L102">        combxCategoria.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
+<span class="nc" id="L103">        combxCategoria.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L93">                combxCategoriaActionPerformed(evt);</span>
-<span class="nc" id="L94">            }</span>
+<span class="nc" id="L105">                combxCategoriaActionPerformed(evt);</span>
+<span class="nc" id="L106">            }</span>
         });
+<span class="nc" id="L108">        getContentPane().add(combxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 140, -1));</span>
 
-<span class="nc" id="L97">        labelCat.setText(&quot;Seleccionar Categoria&quot;);</span>
+<span class="nc" id="L110">        labelCat.setFont(new java.awt.Font(&quot;Gadugi&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L111">        labelCat.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L112">        labelCat.setText(&quot;Seleccionar Categoria&quot;);</span>
+<span class="nc" id="L113">        getContentPane().add(labelCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));</span>
 
-<span class="nc" id="L99">        btnBuscar.setText(&quot;Buscar&quot;);</span>
-<span class="nc" id="L100">        btnBuscar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L115">        btnBuscar.setText(&quot;Buscar&quot;);</span>
+<span class="nc" id="L116">        btnBuscar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L102">                btnBuscarActionPerformed(evt);</span>
-<span class="nc" id="L103">            }</span>
+<span class="nc" id="L118">                btnBuscarActionPerformed(evt);</span>
+<span class="nc" id="L119">            }</span>
         });
+<span class="nc" id="L121">        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));</span>
+<span class="nc" id="L122">        getContentPane().add(dateIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 264, -1));</span>
+<span class="nc" id="L123">        getContentPane().add(dateVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 264, -1));</span>
 
-<span class="nc" id="L106">        labIngreso.setText(&quot;Fecha de Ingreso&quot;);</span>
+<span class="nc" id="L125">        labIngreso.setFont(new java.awt.Font(&quot;Gadugi&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L126">        labIngreso.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L127">        labIngreso.setText(&quot;Fecha de Ingreso&quot;);</span>
+<span class="nc" id="L128">        getContentPane().add(labIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 30));</span>
 
-<span class="nc" id="L108">        labVencimiento.setText(&quot;Fecha de Vencimiento&quot;);</span>
+<span class="nc" id="L130">        labVencimiento.setFont(new java.awt.Font(&quot;Gadugi&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L131">        labVencimiento.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L132">        labVencimiento.setText(&quot;Fecha de Vencimiento&quot;);</span>
+<span class="nc" id="L133">        getContentPane().add(labVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, 20));</span>
 
-<span class="nc" id="L110">        btnGenerar.setText(&quot;Generar&quot;);</span>
-<span class="nc" id="L111">        btnGenerar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L135">        btnGenerar.setText(&quot;Generar&quot;);</span>
+<span class="nc" id="L136">        btnGenerar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L113">                btnGenerarActionPerformed(evt);</span>
-<span class="nc" id="L114">            }</span>
+<span class="nc" id="L138">                btnGenerarActionPerformed(evt);</span>
+<span class="nc" id="L139">            }</span>
         });
+<span class="nc" id="L141">        getContentPane().add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, -1));</span>
 
-<span class="nc" id="L117">        btnAtras.setText(&quot;Atras&quot;);</span>
-<span class="nc" id="L118">        btnAtras.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L143">        btnAtras.setText(&quot;Atras&quot;);</span>
+<span class="nc" id="L144">        btnAtras.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L120">                btnAtrasActionPerformed(evt);</span>
-<span class="nc" id="L121">            }</span>
+<span class="nc" id="L146">                btnAtrasActionPerformed(evt);</span>
+<span class="nc" id="L147">            }</span>
         });
+<span class="nc" id="L149">        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));</span>
 
-<span class="nc" id="L124">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L125">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L126">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L127">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L128">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L129">                .addContainerGap()</span>
-<span class="nc" id="L130">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L131">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L132">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L133">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L134">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L135">                                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L136">                                        .addGap(11, 11, 11)</span>
-<span class="nc" id="L137">                                        .addComponent(jLabel2)</span>
-<span class="nc" id="L138">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L139">                                        .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L140">                                    .addComponent(jScrollPane1))</span>
-<span class="nc" id="L141">                                .addGap(29, 29, 29)</span>
-<span class="nc" id="L142">                                .addComponent(btnBuscar))</span>
-<span class="nc" id="L143">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L144">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L145">                                    .addComponent(labelCat)</span>
-<span class="nc" id="L146">                                    .addComponent(labIngreso)</span>
-<span class="nc" id="L147">                                    .addComponent(labVencimiento))</span>
-<span class="nc" id="L148">                                .addGap(19, 19, 19)</span>
-<span class="nc" id="L149">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L150">                                    .addComponent(dateIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)</span>
-<span class="nc" id="L151">                                    .addComponent(combxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L152">                                    .addComponent(dateVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))</span>
-<span class="nc" id="L153">                        .addContainerGap(69, Short.MAX_VALUE))</span>
-<span class="nc" id="L154">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L155">                        .addGap(0, 0, Short.MAX_VALUE)</span>
-<span class="nc" id="L156">                        .addComponent(jLabel1)</span>
-<span class="nc" id="L157">                        .addGap(104, 104, 104))))</span>
-<span class="nc" id="L158">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L159">                .addGap(77, 77, 77)</span>
-<span class="nc" id="L160">                .addComponent(btnAtras)</span>
-<span class="nc" id="L161">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L162">                .addComponent(btnGenerar)</span>
-<span class="nc" id="L163">                .addGap(89, 89, 89))</span>
-        );
-<span class="nc" id="L165">        layout.setVerticalGroup(</span>
-<span class="nc" id="L166">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L167">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L168">                .addContainerGap()</span>
-<span class="nc" id="L169">                .addComponent(jLabel1)</span>
-<span class="nc" id="L170">                .addGap(36, 36, 36)</span>
-<span class="nc" id="L171">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L172">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L173">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L174">                            .addComponent(jLabel2)</span>
-<span class="nc" id="L175">                            .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L176">                            .addComponent(btnBuscar))</span>
-<span class="nc" id="L177">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L178">                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L179">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L180">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L181">                            .addComponent(combxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L182">                            .addComponent(labelCat))</span>
-<span class="nc" id="L183">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L184">                        .addComponent(dateIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L185">                    .addComponent(labIngreso))</span>
-<span class="nc" id="L186">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L187">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L188">                    .addComponent(dateVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L189">                    .addComponent(labVencimiento))</span>
-<span class="nc" id="L190">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L191">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L192">                    .addComponent(btnGenerar)</span>
-<span class="nc" id="L193">                    .addComponent(btnAtras))</span>
-<span class="nc" id="L194">                .addGap(90, 90, 90))</span>
-        );
+<span class="nc" id="L151">        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/logo_75x75.png&quot;))); // NOI18N</span>
+<span class="nc" id="L152">        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));</span>
 
-<span class="nc" id="L197">        pack();</span>
-<span class="nc" id="L198">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L154">        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L155">        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 82, 590, 20));</span>
+
+<span class="nc" id="L157">        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/FondoMarron.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L158">        jLabelFondo.setText(&quot;jLabel3&quot;);</span>
+<span class="nc" id="L159">        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 450));</span>
+
+<span class="nc" id="L161">        pack();</span>
+<span class="nc" id="L162">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void combxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combxCategoriaActionPerformed
         // TODO add your handling code here:
       
-<span class="nc" id="L203">    }//GEN-LAST:event_combxCategoriaActionPerformed</span>
+<span class="nc" id="L167">    }//GEN-LAST:event_combxCategoriaActionPerformed</span>
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
           try {
-<span class="nc" id="L208">            EmpeladoVO empleado =null;</span>
-<span class="nc" id="L209">            EmpeladoDAO dempleado = new EmpeladoDAO();</span>
-<span class="nc" id="L210">            Tabla_EmpeladoVO tablas = new Tabla_EmpeladoVO();</span>
+<span class="nc" id="L172">            EmpeladoVO empleado =null;</span>
+<span class="nc" id="L173">            EmpeladoDAO dempleado = new EmpeladoDAO();</span>
+<span class="nc" id="L174">            Tabla_EmpeladoVO tablas = new Tabla_EmpeladoVO();</span>
             
-<span class="nc" id="L212">            empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDni.getText()));</span>
+<span class="nc" id="L176">            empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDni.getText()));</span>
             
-<span class="nc bnc" id="L214" title="All 2 branches missed.">            if(empleado!=null){</span>
-<span class="nc" id="L215">                this.labelCat.setVisible(true);</span>
-<span class="nc" id="L216">                this.combxCategoria.setVisible(true);</span>
-<span class="nc" id="L217">                this.labIngreso.setVisible(true);</span>
-<span class="nc" id="L218">                this.dateIngreso.setVisible(true);</span>
-<span class="nc" id="L219">                this.labVencimiento.setVisible(true);</span>
-<span class="nc" id="L220">                this.dateVencimiento.setVisible(true);</span>
-<span class="nc" id="L221">                tablas.mostrarEmpleado(tablaEmpleado, Integer.parseInt(txtDni.getText()));</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">            if(empleado!=null){</span>
+<span class="nc" id="L179">                this.labelCat.setVisible(true);</span>
+<span class="nc" id="L180">                this.combxCategoria.setVisible(true);</span>
+<span class="nc" id="L181">                this.labIngreso.setVisible(true);</span>
+<span class="nc" id="L182">                this.dateIngreso.setVisible(true);</span>
+<span class="nc" id="L183">                this.labVencimiento.setVisible(true);</span>
+<span class="nc" id="L184">                this.dateVencimiento.setVisible(true);</span>
+<span class="nc" id="L185">                tablas.mostrarEmpleado(tablaEmpleado, Integer.parseInt(txtDni.getText()));</span>
             }
             //empleado = dempleado.Buscar_EmpeladoVO(Integer.parseInt(txtDNI.getText()));
        
-<span class="nc" id="L225">        } catch (Exception e) {</span>
-<span class="nc" id="L226">        }</span>
-<span class="nc" id="L227">    }//GEN-LAST:event_btnBuscarActionPerformed</span>
+<span class="nc" id="L189">        } catch (Exception e) {</span>
+<span class="nc" id="L190">        }</span>
+<span class="nc" id="L191">    }//GEN-LAST:event_btnBuscarActionPerformed</span>
     private void limpiar() {
-<span class="nc" id="L229">        txtDni.setText(&quot;&quot;);</span>
+<span class="nc" id="L193">        txtDni.setText(&quot;&quot;);</span>
 
-<span class="nc" id="L231">    }</span>
+<span class="nc" id="L195">    }</span>
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-<span class="nc" id="L233">        ContratoDAO condao = new ContratoDAO();</span>
-<span class="nc" id="L234">        ContratoVO cont = new ContratoVO();</span>
-<span class="nc" id="L235">        int i = 0;</span>
+<span class="nc" id="L197">        ContratoDAO condao = new ContratoDAO();</span>
+<span class="nc" id="L198">        ContratoVO cont = new ContratoVO();</span>
+<span class="nc" id="L199">        int i = 0;</span>
         
 //        java.util.Calendar cal = Calendar.getInstance();
 //        java.util.Date utilDate = new java.util.Date();
@@ -241,12 +205,12 @@ public class GenerarContrato extends javax.swing.JFrame {
 //        cal.set(Calendar.MINUTE, 0);
 //        cal.set(Calendar.SECOND, 0);
 //        cal.set(Calendar.MILLISECOND, 0);
-<span class="nc" id="L244">        java.sql.Date sqlDateI = new java.sql.Date(dateIngreso.getDate().getTime());</span>
-<span class="nc" id="L245">        java.sql.Date sqlDateV = new java.sql.Date(dateVencimiento.getDate().getTime());</span>
+<span class="nc" id="L208">        java.sql.Date sqlDateI = new java.sql.Date(dateIngreso.getDate().getTime());</span>
+<span class="nc" id="L209">        java.sql.Date sqlDateV = new java.sql.Date(dateVencimiento.getDate().getTime());</span>
 
         //System.out.println(&quot;utilDate&quot;+ utilDate);
-<span class="nc" id="L248">        System.out.println(&quot;sqlDateIngreso: &quot;+ sqlDateI);    </span>
-<span class="nc" id="L249">        System.out.println(&quot;sqlDateVencimiento: &quot;+ sqlDateV);</span>
+<span class="nc" id="L212">        System.out.println(&quot;sqlDateIngreso: &quot;+ sqlDateI);    </span>
+<span class="nc" id="L213">        System.out.println(&quot;sqlDateVencimiento: &quot;+ sqlDateV);</span>
 
 
 
@@ -254,33 +218,33 @@ public class GenerarContrato extends javax.swing.JFrame {
         del contrato con el dni del esmpleado*/
         
         
-<span class="nc" id="L257">        cont.setFechafirma(sqlDateI);</span>
-<span class="nc" id="L258">        cont.setFechavencimiento(sqlDateV);</span>
-<span class="nc" id="L259">        cont.setDni(Integer.parseInt(txtDni.getText()));</span>
-<span class="nc bnc" id="L260" title="All 2 branches missed.">        if (combxCategoria.getSelectedIndex() == 0){</span>
-<span class="nc" id="L261">            cont.setIdcategoria(4);</span>
+<span class="nc" id="L221">        cont.setFechafirma(sqlDateI);</span>
+<span class="nc" id="L222">        cont.setFechavencimiento(sqlDateV);</span>
+<span class="nc" id="L223">        cont.setDni(Integer.parseInt(txtDni.getText()));</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">        if (combxCategoria.getSelectedIndex() == 0){</span>
+<span class="nc" id="L225">            cont.setIdcategoria(4);</span>
         } else{
-<span class="nc bnc" id="L263" title="All 2 branches missed.">            if(combxCategoria.getSelectedIndex() == 1){</span>
-<span class="nc" id="L264">                 cont.setIdcategoria(5);</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">            if(combxCategoria.getSelectedIndex() == 1){</span>
+<span class="nc" id="L228">                 cont.setIdcategoria(5);</span>
             } else {
-<span class="nc" id="L266">                 cont.setIdcategoria(6);</span>
+<span class="nc" id="L230">                 cont.setIdcategoria(6);</span>
             }
         }
-<span class="nc" id="L269">        i = condao.Agregar_ContratoVO(cont);</span>
-<span class="nc bnc" id="L270" title="All 2 branches missed.">        if (i &gt; 0) {</span>
-<span class="nc" id="L271">                JOptionPane.showMessageDialog(this, &quot;Contrato Agregado Correctamente&quot;);</span>
+<span class="nc" id="L233">        i = condao.Agregar_ContratoVO(cont);</span>
+<span class="nc bnc" id="L234" title="All 2 branches missed.">        if (i &gt; 0) {</span>
+<span class="nc" id="L235">                JOptionPane.showMessageDialog(this, &quot;Contrato Agregado Correctamente&quot;);</span>
         } else {
-<span class="nc" id="L273">                JOptionPane.showMessageDialog(this, &quot;No se Pudo agregar el contrato&quot;);</span>
+<span class="nc" id="L237">                JOptionPane.showMessageDialog(this, &quot;No se Pudo agregar el contrato&quot;);</span>
         }
 
-<span class="nc" id="L276">        limpiar();</span>
+<span class="nc" id="L240">        limpiar();</span>
         
-<span class="nc" id="L278">    }//GEN-LAST:event_btnGenerarActionPerformed</span>
+<span class="nc" id="L242">    }//GEN-LAST:event_btnGenerarActionPerformed</span>
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
        
-<span class="nc" id="L282">       this.dispose();</span>
-<span class="nc" id="L283">    }//GEN-LAST:event_btnAtrasActionPerformed</span>
+<span class="nc" id="L246">       this.dispose();</span>
+<span class="nc" id="L247">    }//GEN-LAST:event_btnAtrasActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -292,30 +256,30 @@ public class GenerarContrato extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L295" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L296" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L297">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L298">                    break;</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L261">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L262">                    break;</span>
                 }
             }
-<span class="nc" id="L301">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L302">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L303">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L304">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L305">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L306">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L307">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L308">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L309">        }</span>
+<span class="nc" id="L265">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L266">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L267">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L268">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L269">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L270">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L271">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L272">            java.util.logging.Logger.getLogger(GenerarContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L273">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L313">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L277">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L315">                new GenerarContrato().setVisible(true);</span>
-<span class="nc" id="L316">            }</span>
+<span class="nc" id="L279">                new GenerarContrato().setVisible(true);</span>
+<span class="nc" id="L280">            }</span>
         });
-<span class="nc" id="L318">    }</span>
+<span class="nc" id="L282">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
@@ -326,7 +290,10 @@ public class GenerarContrato extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dateVencimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labIngreso;
     private javax.swing.JLabel labVencimiento;
     private javax.swing.JLabel labelCat;

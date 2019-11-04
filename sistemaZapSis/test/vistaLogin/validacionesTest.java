@@ -59,7 +59,7 @@ public class validacionesTest {
     public void testEmpty2() {
         System.out.println("isEmpty");
         String n = "dsd";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isEmpty(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -85,9 +85,9 @@ public class validacionesTest {
      */
     @Test
     public void testNumber2() {
-        System.out.println("isNumber");
+        System.out.println("isntNumber");
         String n = "number";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isNumber(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -99,9 +99,9 @@ public class validacionesTest {
      */
     @Test
     public void testNumber3() {
-        System.out.println("isNumber");
+        System.out.println("isntNumber");
         String n = "";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isNumber(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -129,9 +129,9 @@ public class validacionesTest {
      */
     @Test
     public void testString2() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -143,9 +143,9 @@ public class validacionesTest {
      */
     @Test
     public void testString3() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "!";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -157,9 +157,9 @@ public class validacionesTest {
      */
     @Test
     public void testString4() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "#";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -171,9 +171,9 @@ public class validacionesTest {
      */
     @Test
     public void testString5() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "$";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -184,9 +184,9 @@ public class validacionesTest {
      */
     @Test
     public void testString6() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "$";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -198,9 +198,9 @@ public class validacionesTest {
      */
     @Test
     public void testString7() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "%";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -212,9 +212,9 @@ public class validacionesTest {
      */
     @Test
     public void testString8() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "&";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -226,37 +226,25 @@ public class validacionesTest {
      */
     @Test
     public void testString9() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "*";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     
-       /**
-     * Test of holders method, of class frm_alta.
-     */
-    @Test
-    public void testString10() {
-        System.out.println("isString");
-        String n = "/";
-        boolean expResult = true;
-        boolean result = validaciones.isString(n);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+   
     
       /**
      * Test of holders method, of class frm_alta.
      */
     @Test
     public void testString11() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "/";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -268,9 +256,9 @@ public class validacionesTest {
      */
     @Test
     public void testString12() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "=";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -282,9 +270,9 @@ public class validacionesTest {
      */
     @Test
     public void testString13() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "?";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -296,9 +284,9 @@ public class validacionesTest {
      */
     @Test
     public void testString14() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "¡";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -310,9 +298,9 @@ public class validacionesTest {
      */
     @Test
     public void testString15() {
-        System.out.println("isString");
+        System.out.println("isntString");
         String n = "55666";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isString(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -340,9 +328,9 @@ public class validacionesTest {
      */
     @Test
     public void testFloat2() {
-        System.out.println("isFloat");
+        System.out.println("isntFloat");
         String n = "float";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isFloat(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -354,9 +342,9 @@ public class validacionesTest {
      */
     @Test
     public void testFloat3() {
-        System.out.println("isFloat");
+        System.out.println("isntFloat");
         String n = "";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isFloat(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -368,14 +356,30 @@ public class validacionesTest {
      */
     @Test
     public void testFloat4() {
-        System.out.println("isFloat");
+        System.out.println("isntFloat");
         String n = " ";
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = validaciones.isFloat(n);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    /**
+     * Test of holders method, of class frm_alta.
+     */
+    @Test
+    public void testMail1() {
+        System.out.println("isMail");
+        String n = "asd@gmail.com";
+        boolean expResult = true;
+        boolean result = validaciones.isEmail(n);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    
     
     
    
