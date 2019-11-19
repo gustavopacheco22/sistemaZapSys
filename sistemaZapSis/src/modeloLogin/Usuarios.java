@@ -7,7 +7,6 @@ public class Usuarios {
     private String password;
     private String nombre;
     private String email;
-    private String last_session;
     private int idTipo;
 
     public int getId() {
@@ -50,13 +49,6 @@ public class Usuarios {
         this.email = email;
     }
 
-    public String getLast_session() {
-        return last_session;
-    }
-
-    public void setLast_session(String last_session) {
-        this.last_session = last_session;
-    }
 
     public int getIdTipo() {
         return idTipo;

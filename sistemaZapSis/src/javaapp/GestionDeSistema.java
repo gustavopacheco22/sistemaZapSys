@@ -5,12 +5,17 @@
  */
 package javaapp;
 
+import java.sql.SQLException;
 import vistaLogin.*;
 /**
  *
  * @author Oscar Andres Arce
  */
 public class GestionDeSistema extends javax.swing.JFrame {
+    
+    private int mod;
+    private int idUsuario;
+    
 
     /**
      * Creates new form GestionDeSistema
@@ -19,6 +24,29 @@ public class GestionDeSistema extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
+ 
+    public GestionDeSistema(int mod, int idUsuario) throws SQLException {
+        //this.manager = new MySQLDaoManager("localhost", "root", "", "siac");
+        initComponents();
+        //setSize(800, 510);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        this.idUsuario = idUsuario;
+        this.mod = mod;
+        if (mod == 1) {
+            btnGesEmpleados.setVisible(true);
+            btnGesHoras.setVisible(false);
+            btnGesInformes.setVisible(false);
+            btnSueldo.setVisible(false);
+        } else if (mod == 2) {
+            btnGesEmpleados.setVisible(true);
+            btnGesHoras.setVisible(true);
+            btnGesInformes.setVisible(true);
+            btnSueldo.setVisible(true);
+        } 
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,7 +136,7 @@ public class GestionDeSistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGesInformesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGesInformesActionPerformed
-        GenerarReporte ventana = new GenerarReporte();
+        GenerarReporte ventana = new GenerarReporte(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
 
@@ -123,19 +151,19 @@ public class GestionDeSistema extends javax.swing.JFrame {
 
     private void btnGesEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGesEmpleadosActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ventana= new GestionEmpleados();
+        GestionEmpleados ventana= new GestionEmpleados(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGesEmpleadosActionPerformed
 
     private void btnGesHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGesHorasActionPerformed
-        horasTrabajadas ventana = new horasTrabajadas();
+        horasTrabajadas ventana = new horasTrabajadas(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGesHorasActionPerformed
 
     private void btnSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSueldoActionPerformed
-        GestionReciboSueldo ventana = new GestionReciboSueldo();
+        GestionReciboSueldo ventana = new GestionReciboSueldo(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSueldoActionPerformed

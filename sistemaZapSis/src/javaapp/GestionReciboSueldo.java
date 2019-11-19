@@ -21,7 +21,10 @@ import VO.EmpeladoVO;
 import VO.HspersonalVO;
 import VO.RetenycontVO;
 import VO.SueldoVO;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,13 +32,22 @@ import java.util.ArrayList;
  */
 public class GestionReciboSueldo extends javax.swing.JFrame {
 
+    
+    private int mod;
+    private int usuario;
     /**
      * Creates new form GestionReciboSueldo
      */
     public GestionReciboSueldo() {
         initComponents();
         setLocationRelativeTo(null);
-
+    }
+    
+    public GestionReciboSueldo(int mod, int usuario) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        this.usuario = usuario;
     }
 
     /**
@@ -59,7 +71,6 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         dateAnio = new com.toedter.calendar.JYearChooser();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaHs = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         btnSueldo = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -95,7 +106,7 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaEmpleado);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 345, 76));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 380, 76));
 
         btnAtras.setText("Atras");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -130,10 +141,7 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tablaHs);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 385, 76));
-
-        jButton1.setText("Imprimir (falta)");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, -1, -1));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 380, 76));
 
         btnSueldo.setText("Generar Sueldo");
         btnSueldo.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +172,7 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tableCategoria);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 322, 76));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 400, 76));
 
         tablaContrato.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -315,8 +323,14 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSueldoActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        GestionDeSistema ventana = new GestionDeSistema();
-        ventana.setVisible(true);
+        GestionDeSistema ventana;
+        try {
+            ventana = new GestionDeSistema(mod, usuario);
+            ventana.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionReciboSueldo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         this.dispose();
         
 
@@ -363,7 +377,6 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
     private javax.swing.JButton btnSueldo;
     private com.toedter.calendar.JYearChooser dateAnio;
     private com.toedter.calendar.JMonthChooser dateMes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

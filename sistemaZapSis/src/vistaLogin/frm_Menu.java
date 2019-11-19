@@ -1,5 +1,8 @@
 package vistaLogin;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javaapp.GestionDeSistema;
 import javax.swing.JOptionPane;
 import modeloLogin.Hash;
@@ -121,14 +124,25 @@ public class frm_Menu extends javax.swing.JFrame {
 
             mod.setUsuario(txtUsuario.getText());
             mod.setPassword(nuevoPass);
+            
             int id = modSql.login(mod);
+            int idtipo = mod.getIdTipo();
             if (id != 0) {
-                GestionDeSistema home = new GestionDeSistema();
+                //GestionDeSistema home = new GestionDeSistema();
+                try {
+                    this.dispose();
+                    JOptionPane.showMessageDialog(null, "Ingresaste Correctamente");
+                    GestionDeSistema home = new GestionDeSistema(mod.getIdTipo(),id);
+                    home.setVisible(true);
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(frm_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 //Inicio.frmLog = null;
-                this.dispose();
-                JOptionPane.showMessageDialog(null, "Ingresaste Correctamente");
+                
+               
                 //home frmHome = new home(mod.getIdTipo(), id);
-                home.setVisible(true);
+               
 
             } else {
                 JOptionPane.showMessageDialog(null, "Datos incorrectos");

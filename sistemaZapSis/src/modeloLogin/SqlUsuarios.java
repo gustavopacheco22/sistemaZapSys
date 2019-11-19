@@ -1,11 +1,14 @@
 package modeloLogin;
 
+import modeloLogin.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class SqlUsuarios extends conexion {
@@ -13,7 +16,7 @@ public class SqlUsuarios extends conexion {
     public boolean registrar(Usuarios usr) {
         PreparedStatement ps = null;
         Connection con = getconexion();
-        String sql = "INSERT INTO `usuario`(`usuario`, `password`, `nombre`, `email`) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO `usuario`(`usuario`, `password`, `nombre`, `email`, `idTipo`) VALUES (?, ?, ?, ?, ?)";
 
         try {
             ps = con.prepareStatement(sql);
@@ -21,6 +24,7 @@ public class SqlUsuarios extends conexion {
             ps.setString(2, usr.getPassword());
             ps.setString(3, usr.getNombre());
             ps.setString(4, usr.getEmail());
+            ps.setInt(5, usr.getIdTipo());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -40,7 +44,7 @@ public class SqlUsuarios extends conexion {
         ResultSet rs = null;
         Connection con = getconexion();
 
-        String sql = "SELECT id, usuario, password, nombre FROM usuario WHERE usuario = ? LIMIT 1";
+        String sql = "SELECT id, usuario, password, nombre, idTipo FROM usuario WHERE usuario = ? LIMIT 1";
 
         try {
             ps = con.prepareStatement(sql);
@@ -51,6 +55,7 @@ public class SqlUsuarios extends conexion {
                 if (usr.getPassword().equals(rs.getString(3))) {
                     usr.setId(rs.getInt(1));
                     usr.setNombre(rs.getString(4));
+                    usr.setIdTipo(rs.getInt(5));
                     return rs.getInt(1);
                 } else {
                     return 0;
@@ -110,6 +115,35 @@ public class SqlUsuarios extends conexion {
 
         return mather.find();
 
+    }
+    
+     /*Metodo Listar Categoria en un ComboBOX*/
+    public void Listar_Usuarios_ComboBOX(JComboBox box){
+        DefaultComboBoxModel value;
+        conexion conec = new conexion();
+        String sql = "SELECT nombre FROM tipousuario;";
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try{
+            ps = conec.getconexion().prepareStatement(sql);
+            rs = ps.executeQuery();
+            value = new DefaultComboBoxModel();
+            box.setModel(value);
+            while(rs.next()){
+                value.addElement(rs.getString(1));
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{
+                ps.close();
+                rs.close();
+                conec.desconectar();
+            }catch(Exception ex){}
+        }
+        
     }
 
 }

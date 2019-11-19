@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
  */
 public class GenerarContrato extends javax.swing.JFrame {
 
+    private int mod;
+    private int idusuario;
     /**
      * Creates new form GenerarContrato
      */
@@ -33,6 +35,20 @@ public class GenerarContrato extends javax.swing.JFrame {
         this.dateIngreso.setVisible(false);
         this.labVencimiento.setVisible(false);
         this.dateVencimiento.setVisible(false);
+        DAO.CategoriaDAO categorias= new DAO.CategoriaDAO();
+        categorias.Listar_Categoria_ComboBOX(combxCategoria);  
+    }
+    public GenerarContrato(int mod, int idusuario) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.labelCat.setVisible(false);
+        this.combxCategoria.setVisible(false);
+        this.labIngreso.setVisible(false);
+        this.dateIngreso.setVisible(false);
+        this.labVencimiento.setVisible(false);
+        this.dateVencimiento.setVisible(false);
+        this.mod = mod;
+        this.idusuario = idusuario;
         DAO.CategoriaDAO categorias= new DAO.CategoriaDAO();
         categorias.Listar_Categoria_ComboBOX(combxCategoria);  
     }
@@ -242,7 +258,8 @@ public class GenerarContrato extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-       
+        GestionEmpleados ventana = new GestionEmpleados(mod, idusuario);
+        ventana.setVisible(true);       
        this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

@@ -5,6 +5,11 @@
  */
 package javaapp;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modeloLogin.Usuarios;
+
 /**
  *
  * @author Oscar Andres Arce
@@ -14,9 +19,21 @@ public class GestionEmpleados extends javax.swing.JFrame {
     /**
      * Creates new form GestionEmpleados
      */
+    
+    private int mod;
+    private int idUsuario;
+    
     public GestionEmpleados() {
         initComponents();
         setLocationRelativeTo(null);
+
+    }
+    
+    public GestionEmpleados(int mod, int usuarios){
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        this.idUsuario = usuarios;
     }
 
     /**
@@ -116,27 +133,33 @@ public class GestionEmpleados extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        GestionDeSistema ventana= new GestionDeSistema();
-        ventana.setVisible(true);
-        this.dispose();
+        GestionDeSistema ventana;
+        try {
+            ventana = new GestionDeSistema(mod, idUsuario);
+            ventana.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnAltaEmp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaEmp1ActionPerformed
         // TODO add your handling code here:
-        AltaEmpleado ventana=new AltaEmpleado();
+        AltaEmpleado ventana=new AltaEmpleado(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAltaEmp1ActionPerformed
 
     private void btnGenContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenContActionPerformed
         // TODO add your handling code here:
-        GenerarContrato ventana= new GenerarContrato();
+        GenerarContrato ventana= new GenerarContrato(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGenContActionPerformed
 
     private void btnBajEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajEmpActionPerformed
-        bajaEmpleado ventana = new bajaEmpleado();
+        bajaEmpleado ventana = new bajaEmpleado(mod, idUsuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBajEmpActionPerformed

@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class bajaEmpleado extends javax.swing.JFrame {
 
+    private int mod;
+    private int idusuario;
     /**
      * Creates new form bajaEmpleado
      */
@@ -23,6 +25,13 @@ public class bajaEmpleado extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
+    }
+    
+    public bajaEmpleado(int mod, int idusuario) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        this.idusuario = idusuario;
     }
 
     /**
@@ -182,7 +191,7 @@ public class bajaEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        GestionEmpleados ventana = new GestionEmpleados();
+        GestionEmpleados ventana = new GestionEmpleados(mod, idusuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed

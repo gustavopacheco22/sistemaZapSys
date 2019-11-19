@@ -9,18 +9,25 @@ import javax.swing.JOptionPane;
 import DAO.EmpeladoDAO;
 import VO.EmpeladoVO;
 
-/**
- *
- * @author Oscar Andres Arce
- */
+
+
 public class AltaEmpleado extends javax.swing.JFrame {
 
+    private int mod;
+    private int idusuario;
     /**
      * Creates new form AltaEmpleado
      */
     public AltaEmpleado() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+    
+    public AltaEmpleado(int mod, int idusuario) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        this.mod = idusuario;
     }
 
     /**
@@ -187,7 +194,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        GestionEmpleados ventana=new GestionEmpleados();
+        GestionEmpleados ventana=new GestionEmpleados(mod, idusuario);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed

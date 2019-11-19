@@ -11,6 +11,9 @@ import VO.EmpeladoVO;
 import VO.*;
 import com.placeholder.PlaceHolder;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +22,9 @@ import javax.swing.JOptionPane;
  */
 public class horasTrabajadas extends javax.swing.JFrame {
 
+    
+    private int mod;
+    private int usuarios;
     /**
      * Creates new form horasTrabajadas
      */
@@ -26,6 +32,16 @@ public class horasTrabajadas extends javax.swing.JFrame {
     public horasTrabajadas() {
         initComponents();
         setLocationRelativeTo(null);
+        FilialDAO filial = new FilialDAO();
+        filial.Listar_filial_ComboBOX(combxFilial);
+        holders();
+    }
+    
+     public horasTrabajadas(int mod, int usuarios) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        this.usuarios = usuarios;
         FilialDAO filial = new FilialDAO();
         filial.Listar_filial_ComboBOX(combxFilial);
         holders();
@@ -279,8 +295,14 @@ public class horasTrabajadas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        GestionDeSistema ventana = new GestionDeSistema();
-        ventana.setVisible(true);
+        GestionDeSistema ventana;
+        try {
+            ventana = new GestionDeSistema(mod, usuarios);
+            ventana.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(horasTrabajadas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

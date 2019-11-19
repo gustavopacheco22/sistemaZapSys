@@ -29,5 +29,9 @@ public class conexion {
         }
       return con;  
     }
+    
+     public void desconectar(){
+        con = null;
+    }
 
 }

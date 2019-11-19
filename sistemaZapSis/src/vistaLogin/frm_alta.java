@@ -27,16 +27,18 @@ public class frm_alta extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         holders();
+        modeloLogin.SqlUsuarios usuarios = new modeloLogin.SqlUsuarios();
+        usuarios.Listar_Usuarios_ComboBOX(comboBoxTipo);
 
     }
     
     public void holders(){
-        holder = new PlaceHolder(txtNombre, Color.ORANGE, Color.ORANGE, "Nombre: ", rootPaneCheckingEnabled, "arial", 12) ;
-        holder = new PlaceHolder(txtApellido, Color.ORANGE, Color.ORANGE, "Apellido: ", rootPaneCheckingEnabled, "arial", 12);
-        holder = new PlaceHolder(txtUsername, Color.ORANGE, Color.ORANGE, "Username: ", rootPaneCheckingEnabled, "arial", 12);
-        holder = new PlaceHolder(txtCorreo, Color.ORANGE, Color.ORANGE, "Correo: "  , rootPaneCheckingEnabled, "arial", 12);
-        holder = new PlaceHolder(txtPassword,  Color.ORANGE, Color.ORANGE, "Password:" , rootPaneCheckingEnabled, "arial", 12);
-        holder = new PlaceHolder(txtConfirmarPassword, Color.ORANGE, Color.ORANGE, "Confirmar Password: " , rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtNombre, Color.BLACK, Color.BLACK, "Nombre: ", rootPaneCheckingEnabled, "arial", 12) ;
+        holder = new PlaceHolder(txtApellido, Color.BLACK, Color.BLACK, "Apellido: ", rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtUsername, Color.BLACK, Color.BLACK, "Username: ", rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtCorreo, Color.BLACK, Color.BLACK, "Correo: "  , rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtPassword,  Color.BLACK, Color.BLACK, "Password:" , rootPaneCheckingEnabled, "arial", 12);
+        holder = new PlaceHolder(txtConfirmarPassword, Color.BLACK, Color.BLACK, "Confirmar Password: " , rootPaneCheckingEnabled, "arial", 12);
     }
 
     SqlUsuarios metodos = new SqlUsuarios();
@@ -58,12 +60,14 @@ public class frm_alta extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         txtConfirmarPassword = new javax.swing.JPasswordField();
         txtCorreo = new javax.swing.JTextField();
+        comboBoxTipo = new javax.swing.JComboBox<>();
         jLabelNombre = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
         jLabelCorreo = new javax.swing.JLabel();
         jLabelPass = new javax.swing.JLabel();
         jLabelConfir = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,7 +105,7 @@ public class frm_alta extends javax.swing.JFrame {
                 btnCancelActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, 30));
+        getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 30));
 
         btnRegistrarse.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
@@ -112,7 +116,7 @@ public class frm_alta extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, -1, -1));
+        getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
 
         txtPassword.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 270, 30));
@@ -133,6 +137,14 @@ public class frm_alta extends javax.swing.JFrame {
         });
         getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 270, 30));
 
+        comboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxTipoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 120, -1));
+
         jLabelNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1486395884-account_80606.png"))); // NOI18N
         getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
@@ -150,6 +162,9 @@ public class frm_alta extends javax.swing.JFrame {
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoMarron.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 490));
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,6 +204,17 @@ public class frm_alta extends javax.swing.JFrame {
                         mod.setPassword(nuevoPass);
                         mod.setNombre(txtNombre.getText());
                         mod.setEmail(txtCorreo.getText());
+                        //mod.setIdTipo(comboBoxTipo.getSelectedIndex());
+                        
+                        if (comboBoxTipo.getSelectedIndex() == 0){
+                            mod.setIdTipo(1);
+                        } else{
+                         if(comboBoxTipo.getSelectedIndex() == 1){
+                            mod.setIdTipo(2);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Tipo de Usuario no seleccionado");
+                          }
+                        }
                         if (modSql.registrar(mod)) {
                             JOptionPane.showMessageDialog(null, "Registro Guardado");
                             //limpiar();
@@ -219,6 +245,10 @@ public class frm_alta extends javax.swing.JFrame {
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void comboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxTipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +289,8 @@ public class frm_alta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JComboBox<String> comboBoxTipo;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelConfir;
     private javax.swing.JLabel jLabelCorreo;
     private javax.swing.JLabel jLabelFondo;

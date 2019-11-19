@@ -7,6 +7,7 @@ package javaapp;
 
 import Conexion.Conectar;
 import com.mysql.jdbc.Connection;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
@@ -22,15 +23,23 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class GenerarReporte extends javax.swing.JFrame {
 
+    
+    private int mod;
+    private int usuario;
     /**
      * Creates new form GenerarReporte
      */
     public GenerarReporte() {
         initComponents();
         setLocationRelativeTo(null);
-
     }
 
+    public GenerarReporte(int mod, int usuario) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        this.usuario = usuario;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,8 +132,14 @@ public class GenerarReporte extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHorasExtraActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        GestionDeSistema ventana = new GestionDeSistema();
-        ventana.setVisible(true);
+        GestionDeSistema ventana;
+        try {
+            ventana = new GestionDeSistema(mod, usuario);
+            ventana.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(GenerarReporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
