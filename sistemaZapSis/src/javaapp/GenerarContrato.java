@@ -182,6 +182,11 @@ public class GenerarContrato extends javax.swing.JFrame {
       
     }//GEN-LAST:event_combxCategoriaActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * Busca un empleado a partir de un DNI
+     */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
           try {
@@ -209,6 +214,13 @@ public class GenerarContrato extends javax.swing.JFrame {
         txtDni.setText("");
 
     }
+    
+    /**
+     * 
+     * @param evt 
+     * Genera un nuevo contrato al empleado designado.
+     */
+    
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         ContratoDAO condao = new ContratoDAO();
         ContratoVO cont = new ContratoVO();

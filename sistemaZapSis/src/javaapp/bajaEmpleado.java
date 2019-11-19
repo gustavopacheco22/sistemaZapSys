@@ -157,6 +157,12 @@ public class bajaEmpleado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtDNIActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * Realiza una baja logica de un empleado seleccionado
+     */
+    
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
         try {
             int i = 0;
@@ -177,6 +183,12 @@ public class bajaEmpleado extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBajaActionPerformed
 
+    
+    /**
+     * 
+     * @param evt 
+     * Busca un empleado a partir de un DNI
+     */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
             EmpeladoVO empleado = new EmpeladoVO();

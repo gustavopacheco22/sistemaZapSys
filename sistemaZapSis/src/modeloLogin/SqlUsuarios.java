@@ -12,6 +12,12 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class SqlUsuarios extends conexion {
+    
+    /**
+     * 
+     * @param usr
+     * @return Inserta un nuevo campo con los datos del nuevo usuario, en la tabla 'usuario' de la base de datos
+     */
 
     public boolean registrar(Usuarios usr) {
         PreparedStatement ps = null;
@@ -39,6 +45,13 @@ public class SqlUsuarios extends conexion {
         }
     }
 
+ /**
+  * @param  usar
+  * @return Toma el usuario y contraseña ingresado, y si dirige a otra ventana.
+  * Si los datos son erroneos, muestra un mensaje
+
+  */
+   
     public int login(Usuarios usr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -74,6 +87,13 @@ public class SqlUsuarios extends conexion {
             }
         }
     }
+    
+    
+    /**
+     * 
+     * @param usuario
+     * @return Recibimos un usuario como parametro, y busca si existe en la base de datos.
+     */
 
     public Long existeUsuario(String usuario) {
         PreparedStatement ps = null;
@@ -106,6 +126,11 @@ public class SqlUsuarios extends conexion {
         }
     }
 
+    /**
+     * 
+     * @param correo
+     * @return Revisa si el correo ingresado, tiene formato de correo.
+     */
     public boolean esEmail(String correo) {
 
         // Patrón para validar el email
@@ -118,6 +143,12 @@ public class SqlUsuarios extends conexion {
     }
     
      /*Metodo Listar Categoria en un ComboBOX*/
+    
+    /**
+     * 
+     * @param box 
+     * 
+     */
     public void Listar_Usuarios_ComboBOX(JComboBox box){
         DefaultComboBoxModel value;
         conexion conec = new conexion();

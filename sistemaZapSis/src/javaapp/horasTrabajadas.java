@@ -258,6 +258,11 @@ public class horasTrabajadas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combxFilialActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * Registra las horas trabajadas de un empleado
+     */
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
         //EmpeladoVO em = new EmpeladoVO();
@@ -306,6 +311,12 @@ public class horasTrabajadas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    
+    /**
+     * 
+     * @param evt 
+     * Busca un empleado a partir de un DNI
+     */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
             EmpeladoVO empleado = new EmpeladoVO();

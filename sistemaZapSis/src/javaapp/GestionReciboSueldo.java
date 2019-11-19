@@ -208,6 +208,11 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     * Busca un empleado a partir de un DNI
+     */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
             EmpeladoVO empleado = new EmpeladoVO();
@@ -257,6 +262,12 @@ public class GestionReciboSueldo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     * Genera un recibo de sueldo de un empleado
+     */
+    
     private void btnSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSueldoActionPerformed
         EmpeladoVO empleado = new EmpeladoVO();
         EmpeladoDAO dempleado = new EmpeladoDAO();

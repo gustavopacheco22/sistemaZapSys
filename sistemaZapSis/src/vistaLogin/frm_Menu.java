@@ -112,6 +112,14 @@ public class frm_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+     /**
+ 
+  * @return Toma el usuario y contraseña ingresado, y si dirige a otra ventana.
+  * Si los datos son erroneos, muestra un mensaje
+
+  */
+   
+    
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         SqlUsuarios modSql = new SqlUsuarios();
         Usuarios mod = new Usuarios();

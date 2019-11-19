@@ -159,6 +159,12 @@ public class AltaEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     * Da de alta a un empleado nuevo
+     */
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
       // TODO add your handling code here;
       ///  JOptionPane.showMessageDialog(this,jComboBox1.getSelectedItem().toString());
